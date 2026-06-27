@@ -9,20 +9,24 @@ extensions:
   - id: jcode.templates
     name: JCode Project Templates
     type: templates
+    version: 0.2.0
     path: extensions/template-1
     repo: https://github.com/janrick123/j-code-ext-template-1.git
   - id: jcode.lang.csharp
     name: C# Language Pack
     type: language
+    version: 0.2.0
     path: extensions/csharp
     repo: https://github.com/janrick123/j-code-ext-csharp.git
   - id: jcode.lang.javascript
     name: JavaScript Language Pack
     type: language
+    version: 0.1.0
     path: extensions/javascript
     repo: https://github.com/janrick123/j-code-ext-javascript.git
   - id: jcode.lang.typescript
     name: TypeScript Language Pack
     type: language
+    version: 0.1.0
     path: extensions/typescript
     repo: https://github.com/janrick123/j-code-ext-typescript.git
