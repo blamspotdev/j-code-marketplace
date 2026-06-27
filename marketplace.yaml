@@ -1,0 +1,28 @@
+name: JCode Marketplace
+publisher: jcode
+version: 0.1.0
+description: >-
+  Registry of installable JCode extensions. Each entry is a git submodule under
+  extensions/. The JCode app reads this index to browse, then clones the chosen
+  extension on-device to install it.
+extensions:
+  - id: jcode.templates
+    name: JCode Project Templates
+    type: templates
+    path: extensions/template-1
+    repo: https://github.com/janrick123/j-code-ext-template-1.git
+  - id: jcode.lang.csharp
+    name: C# Language Pack
+    type: language
+    path: extensions/csharp
+    repo: https://github.com/janrick123/j-code-ext-csharp.git
+  - id: jcode.lang.javascript
+    name: JavaScript Language Pack
+    type: language
+    path: extensions/javascript
+    repo: https://github.com/janrick123/j-code-ext-javascript.git
+  - id: jcode.lang.typescript
+    name: TypeScript Language Pack
+    type: language
+    path: extensions/typescript
+    repo: https://github.com/janrick123/j-code-ext-typescript.git
