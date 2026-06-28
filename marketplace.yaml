@@ -11,7 +11,7 @@ extensions:
     type: templates
     category: Templates
     subcategory: Project
-    version: 0.2.0
+    version: 0.2.1
     path: extensions/template-1
     repo: https://github.com/janrick123/j-code-ext-template-1.git
     suggests:
