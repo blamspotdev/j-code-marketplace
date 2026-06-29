@@ -83,7 +83,7 @@ extensions:
     jext: dist/jcode.lang.markup-1.0.0.jext
     fingerprint:
       algo: sha256
-      value: 839dc8fc8a4d25116ed26761285e8cc86a44e74ada3da5dfda0db114244635ee
+      value: 53039f5e6d485a19930adb577683de3142339556ad1920d6508ab29705a8ba40
     requires:
       sdks: []
       lsps: []
@@ -97,6 +97,35 @@ extensions:
       samples: []
       walkthrough: []
     icon: dist/icons/jcode.lang.markup.png
+  - uniqueName: jcode.lang.stylesheet
+    name: Style Sheet Language Pack
+    publisher: jcode
+    type: language
+    version: 1.0.0
+    category: Languages
+    subcategory: Style Sheets
+    shortDescription: >-
+      Coloring, completions, snippets, and formatting for CSS, SCSS, SASS, LESS, Stylus, XSL, and
+      DSSSL.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.0.0
+    jext: dist/jcode.lang.stylesheet-1.0.0.jext
+    fingerprint:
+      algo: sha256
+      value: 81686118db297f1fbe5b31e139137fa958d8e7b8c1580422bd6e62ae34251b4c
+    requires:
+      sdks: []
+      lsps: []
+      extensions: []
+    suggests:
+      sdks: []
+      lsps: []
+      extensions: []
+    images:
+      icon: media/icon.png
+      samples: []
+      walkthrough: []
+    icon: dist/icons/jcode.lang.stylesheet.png
   - uniqueName: jcode.lang.typescript
     name: TypeScript Language Pack
     publisher: jcode
