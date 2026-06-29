@@ -228,7 +228,7 @@ git push
 ```
 
 The app fetches the index from
-`raw.githubusercontent.com/janrick123/j-code-marketplace/main/marketplace.yaml`, so
+`raw.githubusercontent.com/blamspotdev/j-code-marketplace/main/marketplace.yaml`, so
 it's live as soon as the push propagates.
 
 ## 9. Install & test in JCode
@@ -250,6 +250,21 @@ Open the **Extensions** tab in the left drawer → **Refresh** → tap your exte
   updates against an installed copy.
 - **`minJCodeVersion` / `targetJCodeVersion`** — JCode app compatibility, not your
   version. Set `minJCodeVersion` to the oldest app you've verified.
+
+## Licensing your extension
+
+Your extension is **your** work. You keep the copyright and may license it however
+you like — **open-source or proprietary/closed-source, free or paid**. Listing an
+extension in the JCode marketplace does **not** require it to be open-source, the
+same way a Visual Studio Code extension can be closed-source.
+
+- This marketplace's own code and docs, and the first-party example extensions, are
+  Apache-2.0. That license covers the registry and tooling — **not** the extensions
+  you publish through it.
+- Using JCode's `.jext` extension API does not make your extension a derivative work
+  of the JCode app, so the app's license does not extend to your extension.
+- Put your chosen license in your extension's own repo, and reference it from the
+  extension's `README` or `.jehm` long description if you like.
 
 ## Reference
 

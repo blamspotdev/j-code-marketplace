@@ -30,7 +30,7 @@ and an `extension.yaml` **functional manifest**.
 ## Clone
 
 ```bash
-git clone --recurse-submodules https://github.com/janrick123/j-code-marketplace.git
+git clone --recurse-submodules https://github.com/blamspotdev/j-code-marketplace.git
 # or, after a plain clone:
 git submodule update --init --recursive
 ```

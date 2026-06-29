@@ -1,16 +1,16 @@
 [submodule "extensions/template-1"]
 	path = extensions/template-1
-	url = https://github.com/janrick123/j-code-ext-template-1.git
+	url = https://github.com/blamspotdev/j-code-ext-template-1.git
 	branch = main
 [submodule "extensions/csharp"]
 	path = extensions/csharp
-	url = https://github.com/janrick123/j-code-ext-csharp.git
+	url = https://github.com/blamspotdev/j-code-ext-csharp.git
 	branch = main
 [submodule "extensions/javascript"]
 	path = extensions/javascript
-	url = https://github.com/janrick123/j-code-ext-javascript.git
+	url = https://github.com/blamspotdev/j-code-ext-javascript.git
 	branch = main
 [submodule "extensions/typescript"]
 	path = extensions/typescript
-	url = https://github.com/janrick123/j-code-ext-typescript.git
+	url = https://github.com/blamspotdev/j-code-ext-typescript.git
 	branch = main
