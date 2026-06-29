@@ -14,3 +14,11 @@
 	path = extensions/typescript
 	url = https://github.com/blamspotdev/j-code-ext-typescript.git
 	branch = main
+[submodule "extensions/markup-pack-1"]
+	path = extensions/markup-pack-1
+	url = https://github.com/blamspotdev/j-code-ext-markup-pack-1.git
+	branch = main
+[submodule "extensions/style-sheet-lang-pack"]
+	path = extensions/style-sheet-lang-pack
+	url = https://github.com/blamspotdev/j-code-ext-style-sheet-lang-pack.git
+	branch = main
