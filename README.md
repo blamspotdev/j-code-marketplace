@@ -44,6 +44,10 @@ git submodule update --init --recursive
 
 ## Add / update an extension
 
+> **New here?** [**CREATING-EXTENSIONS.md**](CREATING-EXTENSIONS.md) is the full,
+> step-by-step walkthrough (header + manifest schemas, `language`/`templates`
+> examples, icons, publishing, and how the app installs). Quick version:
+
 1. Create a `j-code-ext-<name>` repo with an `extension.jehm` header (`jext init`)
    and an `extension.yaml` manifest.
 2. `git submodule add -b main <repo-url> extensions/<name>`.
