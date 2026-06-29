@@ -12,6 +12,7 @@ description: >-
 extensions:
   - uniqueName: jcode.lang.csharp
     name: C# Language Pack
+    publisher: jcode
     type: language
     version: 0.2.0
     category: Languages
@@ -40,6 +41,7 @@ extensions:
     icon: dist/icons/jcode.lang.csharp.png
   - uniqueName: jcode.lang.javascript
     name: JavaScript Language Pack
+    publisher: jcode
     type: language
     version: 0.1.0
     category: Languages
@@ -68,6 +70,7 @@ extensions:
     icon: dist/icons/jcode.lang.javascript.png
   - uniqueName: jcode.lang.typescript
     name: TypeScript Language Pack
+    publisher: jcode
     type: language
     version: 0.1.0
     category: Languages
@@ -96,6 +99,7 @@ extensions:
     icon: dist/icons/jcode.lang.typescript.png
   - uniqueName: jcode.templates
     name: JCode Project Templates
+    publisher: jcode
     type: templates
     version: 0.2.1
     category: Templates
