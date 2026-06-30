@@ -10,6 +10,65 @@ description: >-
   dist/. The JCode app reads this index to browse, then downloads and verifies the .jext to install
   it.
 extensions:
+  - uniqueName: jcode.ext.sqlserver
+    name: SQL Server
+    publisher: jcode
+    type: dbmanager
+    version: 0.2.0
+    category: Databases
+    subcategory: SQL Server
+    shortDescription: >-
+      A pure SQL Server client — connect to any server, browse databases and tables, edit rows, and
+      back up/restore.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.0.0
+    jext: dist/jcode.ext.sqlserver-0.2.0.jext
+    fingerprint:
+      algo: sha256
+      value: 4b5a36e072fc196011584d672ed64dbb4c00c2f0afa0a44e0b483ed96235d5ea
+    requires:
+      sdks: []
+      lsps: []
+      extensions: []
+    suggests:
+      sdks: []
+      lsps: []
+      extensions: []
+    supportedArches:
+      - arm64
+    images:
+      icon: null
+      samples: []
+      walkthrough: []
+  - uniqueName: jcode.ext.vmmanager
+    name: VM Manager
+    publisher: jcode
+    type: app
+    version: 0.1.0
+    category: Virtualization
+    subcategory: QEMU
+    shortDescription: Create and run x86/x86_64 virtual machines with QEMU — for software with no ARM build.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.0.0
+    jext: dist/jcode.ext.vmmanager-0.1.0.jext
+    fingerprint:
+      algo: sha256
+      value: 52684dbb617787caba7a832a80855ee7f623ccbfac825ac331f7f0af2461a981
+    requires:
+      sdks:
+        - qemu-system-x86
+      lsps: []
+      extensions: []
+    suggests:
+      sdks: []
+      lsps: []
+      extensions: []
+    supportedArches:
+      - arm64
+    images:
+      icon: null
+      samples: []
+      walkthrough: []
   - uniqueName: jcode.lang.csharp
     name: C# Language Pack
     publisher: jcode
