@@ -283,16 +283,16 @@ extensions:
     name: JCode Project Templates
     publisher: jcode
     type: templates
-    version: 0.2.1
+    version: 0.2.2
     category: Templates
     subcategory: Project
     shortDescription: First-party project templates scaffolded on-device by the embedded runtime.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.templates-0.2.1.jext
+    jext: dist/jcode.templates-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: cefe403d57c615a7a5f1e14ecb21cb576b9e69e51735c41e417d7e68a86f5e5d
+      value: 6e122aabdef94b8852a60a693e8f97a2e45ff84a5484cfc212f12f2267b392b7
     requires:
       sdks: []
       lsps: []

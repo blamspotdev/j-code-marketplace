@@ -259,7 +259,7 @@ extension in the JCode marketplace does **not** require it to be open-source, th
 same way a Visual Studio Code extension can be closed-source.
 
 - This marketplace's own code and docs, and the first-party example extensions, are
-  Apache-2.0. That license covers the registry and tooling — **not** the extensions
+  MIT-licensed. That license covers the registry and tooling — **not** the extensions
   you publish through it.
 - Using JCode's `.jext` extension API does not make your extension a derivative work
   of the JCode app, so the app's license does not extend to your extension.
