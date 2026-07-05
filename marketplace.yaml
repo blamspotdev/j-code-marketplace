@@ -59,7 +59,7 @@ extensions:
     jext: dist/jcode.ext.pgclient-0.1.0.jext
     fingerprint:
       algo: sha256
-      value: ee705b7a9d731ab6a1725c4ba5762669bacfbfbc8ac7a66f3dee812173a8c4da
+      value: fca35870f7a79c40d6f41ae3782e4ccd812b80406911e718a4a7d4477e891701
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.pgclient.png
