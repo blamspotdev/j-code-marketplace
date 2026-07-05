@@ -1,7 +1,3 @@
-[submodule "extensions/template-1"]
-	path = extensions/template-1
-	url = https://github.com/blamspotdev/j-code-ext-template-1.git
-	branch = main
 [submodule "extensions/csharp"]
 	path = extensions/csharp
 	url = https://github.com/blamspotdev/j-code-ext-csharp.git
