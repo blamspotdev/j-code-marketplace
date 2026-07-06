@@ -14,7 +14,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.5.0
+    version: 0.5.1
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -22,10 +22,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.5.0.jext
+    jext: dist/jcode.ext.gitscm-0.5.1.jext
     fingerprint:
       algo: sha256
-      value: f7d10d9ceee6b20a48d027b84eca4e3fe617248f089aed703ff04ad6cb8322dc
+      value: 898a8d697d95fdb5fefae1887a26808ff4b97f42d2d74640ca6aa8dd99d2d039
     icon: dist/icons/jcode.ext.gitscm.png
   - uniqueName: jcode.ext.openchamber
     name: OpenChamber
@@ -67,7 +67,7 @@ extensions:
     name: SQL Client
     publisher: jcode
     type: dbmanager
-    version: 0.3.0
+    version: 0.3.1
     category: Databases
     subcategory: SQL Server
     shortDescription: >-
@@ -75,10 +75,10 @@ extensions:
       diagrams and security in a full editor studio.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.sqlclient-0.3.0.jext
+    jext: dist/jcode.ext.sqlclient-0.3.1.jext
     fingerprint:
       algo: sha256
-      value: c6ed371547cc3a411399d91a6fd41f7fe0f8040f63bb5f358cda63f04dcf30a2
+      value: e84d3c74555305f3cdbc0b848c37ac20ca7b879fc942d4781b15bac30d72aa19
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.sqlclient.png
@@ -86,7 +86,7 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.0
+    version: 0.3.1
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
@@ -94,10 +94,10 @@ extensions:
       ARM build.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.vmmanager-0.3.0.jext
+    jext: dist/jcode.ext.vmmanager-0.3.1.jext
     fingerprint:
       algo: sha256
-      value: 5cd70438212e89c07e769069c8d9a360e9bc35158ce7bbdeb02091480dacce6f
+      value: 0465bab94099bbf48ead7b2e041331ed2acd6fa2f00fb77ef6cc77f755811046
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.vmmanager.png
