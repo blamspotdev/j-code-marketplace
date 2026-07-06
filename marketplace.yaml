@@ -14,7 +14,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.5.1
+    version: 0.6.0
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -22,10 +22,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.5.1.jext
+    jext: dist/jcode.ext.gitscm-0.6.0.jext
     fingerprint:
       algo: sha256
-      value: 898a8d697d95fdb5fefae1887a26808ff4b97f42d2d74640ca6aa8dd99d2d039
+      value: eeb58c1c67cb717b5c9967e65e0b8a0e4f44a31f76c2fb9444eed6f373a29971
     icon: dist/icons/jcode.ext.gitscm.png
   - uniqueName: jcode.ext.openchamber
     name: OpenChamber
@@ -101,6 +101,21 @@ extensions:
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.vmmanager.png
+  - uniqueName: jcode.lang.csharp
+    name: C# Language Pack
+    publisher: jcode
+    type: language
+    version: 0.3.0
+    category: Languages
+    subcategory: C#
+    shortDescription: Coding suggestions, a basic formatter, helpers, and .NET project templates for C#.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.0.0
+    jext: dist/jcode.lang.csharp-0.3.0.jext
+    fingerprint:
+      algo: sha256
+      value: d9296724abf556dd14453a0071e47a18f8145839b1cf8b738c4a8afd7177e534
+    icon: dist/icons/jcode.lang.csharp.png
   - uniqueName: jcode.lang.kotlin
     name: Kotlin Language Pack
     publisher: jcode
@@ -165,6 +180,21 @@ extensions:
       algo: sha256
       value: 15c55a1b1e3dad840b89cbd5db74654f9e9450b9bebcffe4a9df8fb80fe939df
     icon: dist/icons/jcode.lang.stylesheet.png
+  - uniqueName: jcode.lang.typescript
+    name: TypeScript Language Pack
+    publisher: jcode
+    type: language
+    version: 0.2.0
+    category: Languages
+    subcategory: TypeScript
+    shortDescription: Coding suggestions, a basic formatter, helpers, and project templates for TypeScript.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.0.0
+    jext: dist/jcode.lang.typescript-0.2.0.jext
+    fingerprint:
+      algo: sha256
+      value: 65d80c02de2c52cbf211848811ac221e2e5bad64b6ab5db44db64db5858f9ff6
+    icon: dist/icons/jcode.lang.typescript.png
   - uniqueName: jcode.pack.android
     name: Android Dev Pack
     publisher: jcode
