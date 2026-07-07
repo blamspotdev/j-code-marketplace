@@ -116,6 +116,21 @@ extensions:
       algo: sha256
       value: d9296724abf556dd14453a0071e47a18f8145839b1cf8b738c4a8afd7177e534
     icon: dist/icons/jcode.lang.csharp.png
+  - uniqueName: jcode.lang.javascript
+    name: JavaScript Language Pack
+    publisher: jcode
+    type: language
+    version: 0.2.0
+    category: Languages
+    subcategory: JavaScript
+    shortDescription: Coding suggestions, a basic formatter, helpers, and a project template for JavaScript.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.0.0
+    jext: dist/jcode.lang.javascript-0.2.0.jext
+    fingerprint:
+      algo: sha256
+      value: 6fbcbeea9c968c59e0f155aeb28440410370971580c30670c38a125cb725a750
+    icon: dist/icons/jcode.lang.javascript.png
   - uniqueName: jcode.lang.kotlin
     name: Kotlin Language Pack
     publisher: jcode
