@@ -31,16 +31,18 @@ extensions:
     name: OpenChamber
     publisher: openchamber
     type: app
-    version: 0.2.4
-    category: null
-    subcategory: null
-    shortDescription: AI coding agent chat (opencode + the OpenChamber UI) — no Node.js required.
+    version: 1.14.1
+    category: AI
+    subcategory: Agents
+    shortDescription: >-
+      AI coding agent chat in your IDE — the OpenChamber UI for opencode, shipped as a static bundle
+      (no Node.js needed).
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.openchamber-0.2.4.jext
+    jext: dist/jcode.ext.openchamber-1.14.1.jext
     fingerprint:
       algo: sha256
-      value: b86399b0305bdf356b69de7b18a7170105b48916f15f5904892ad0588a12f5f3
+      value: 30f00fb70247ea949163b9fcec6423a074897fb15fef72cedefb3b80b9c59fa5
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.openchamber.png
