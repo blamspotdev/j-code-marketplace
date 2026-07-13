@@ -18,3 +18,35 @@
 	path = extensions/style-sheet-lang-pack
 	url = https://github.com/blamspotdev/j-code-ext-style-sheet-lang-pack.git
 	branch = main
+[submodule "extensions/openchamber"]
+	path = extensions/openchamber
+	url = https://github.com/blamspotdev/jcode-ext-openchamber.git
+	branch = main
+[submodule "extensions/postgres-client"]
+	path = extensions/postgres-client
+	url = https://github.com/blamspotdev/jcode-ext-postgres-client.git
+	branch = main
+[submodule "extensions/vm-mngr"]
+	path = extensions/vm-mngr
+	url = https://github.com/blamspotdev/j-code-ext-vm-mngr.git
+	branch = main
+[submodule "extensions/python"]
+	path = extensions/python
+	url = https://github.com/blamspotdev/jcode-ext-python.git
+	branch = main
+[submodule "extensions/kotlin"]
+	path = extensions/kotlin
+	url = https://github.com/blamspotdev/jcode-ext-kotlin.git
+	branch = main
+[submodule "extensions/android"]
+	path = extensions/android
+	url = https://github.com/blamspotdev/jcode-ext-android.git
+	branch = main
+[submodule "extensions/git-scm"]
+	path = extensions/git-scm
+	url = https://github.com/blamspotdev/jcode-ext-git-scm.git
+	branch = main
+[submodule "extensions/sql-client"]
+	path = extensions/sql-client
+	url = https://github.com/blamspotdev/j-code-ext-sql-client.git
+	branch = main
