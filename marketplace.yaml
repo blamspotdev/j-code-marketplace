@@ -14,7 +14,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.6.0
+    version: 0.7.0
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -22,10 +22,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.6.0.jext
+    jext: dist/jcode.ext.gitscm-0.7.0.jext
     fingerprint:
       algo: sha256
-      value: eeb58c1c67cb717b5c9967e65e0b8a0e4f44a31f76c2fb9444eed6f373a29971
+      value: 19a1a2006987d630033495f69b98521596c73a1939db6af93e1a92889e091162
     icon: dist/icons/jcode.ext.gitscm.png
   - uniqueName: jcode.ext.openchamber
     name: OpenChamber
@@ -88,7 +88,7 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.1
+    version: 0.3.2
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
@@ -96,10 +96,10 @@ extensions:
       ARM build.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.vmmanager-0.3.1.jext
+    jext: dist/jcode.ext.vmmanager-0.3.2.jext
     fingerprint:
       algo: sha256
-      value: 0465bab94099bbf48ead7b2e041331ed2acd6fa2f00fb77ef6cc77f755811046
+      value: be86b41c7a5e80363957ebf0c74fe2ed53bd3057c7dde2f5253bd51d173e9c5c
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.vmmanager.png
@@ -107,16 +107,16 @@ extensions:
     name: C# Language Pack
     publisher: jcode
     type: language
-    version: 0.3.0
+    version: 0.3.3
     category: Languages
     subcategory: C#
     shortDescription: Coding suggestions, a basic formatter, helpers, and .NET project templates for C#.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.csharp-0.3.0.jext
+    jext: dist/jcode.lang.csharp-0.3.3.jext
     fingerprint:
       algo: sha256
-      value: d9296724abf556dd14453a0071e47a18f8145839b1cf8b738c4a8afd7177e534
+      value: 8d3ca0b70c7dcb0d6ae1946c3b4dcad2816ae7e8cb7150596056994e199ab042
     icon: dist/icons/jcode.lang.csharp.png
   - uniqueName: jcode.lang.javascript
     name: JavaScript Language Pack
@@ -169,16 +169,16 @@ extensions:
     name: Python Language Pack
     publisher: jcode
     type: language
-    version: 0.2.0
+    version: 0.2.2
     category: Languages
     subcategory: Python
     shortDescription: Coloring, completions, snippets, a basic formatter, and project templates for Python.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.python-0.2.0.jext
+    jext: dist/jcode.lang.python-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: 88565421aa43eddbe13290dd57ec5bc0fd69a237d1df7dfa9e2746f1a9da2e1b
+      value: 64d0e0779ee2dbec89add97e78ed6c48c7cdba0c165efc72c298b38cc247bfcc
     icon: dist/icons/jcode.lang.python.png
   - uniqueName: jcode.lang.stylesheet
     name: Style Sheet Language Pack
