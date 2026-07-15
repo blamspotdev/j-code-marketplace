@@ -26,6 +26,11 @@ extensions:
     fingerprint:
       algo: sha256
       value: 19a1a2006987d630033495f69b98521596c73a1939db6af93e1a92889e091162
+    requires:
+      extensions: []
+      sdks:
+        - git
+    suggests: {}
     icon: dist/icons/jcode.ext.gitscm.png
   - uniqueName: jcode.ext.openchamber
     name: OpenChamber
@@ -62,6 +67,8 @@ extensions:
     fingerprint:
       algo: sha256
       value: fca35870f7a79c40d6f41ae3782e4ccd812b80406911e718a4a7d4477e891701
+    requires:
+      extensions: []
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.pgclient.png
@@ -81,6 +88,8 @@ extensions:
     fingerprint:
       algo: sha256
       value: e84d3c74555305f3cdbc0b848c37ac20ca7b879fc942d4781b15bac30d72aa19
+    requires:
+      extensions: []
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.sqlclient.png
@@ -99,7 +108,10 @@ extensions:
     jext: dist/jcode.ext.vmmanager-0.3.2.jext
     fingerprint:
       algo: sha256
-      value: be86b41c7a5e80363957ebf0c74fe2ed53bd3057c7dde2f5253bd51d173e9c5c
+      value: 623648537f33cd39fb631480ae62bff25607f3a7984f18a2073eed14c9b06e9e
+    requires:
+      sdks:
+        - qemu-system-x86
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.vmmanager.png
@@ -117,6 +129,14 @@ extensions:
     fingerprint:
       algo: sha256
       value: 8d3ca0b70c7dcb0d6ae1946c3b4dcad2816ae7e8cb7150596056994e199ab042
+    requires:
+      lsps:
+        - csharp-ls
+      sdks:
+        - dotnet
+    suggests:
+      dbg:
+        - netcoredbg
     icon: dist/icons/jcode.lang.csharp.png
   - uniqueName: jcode.lang.javascript
     name: JavaScript Language Pack
@@ -132,6 +152,14 @@ extensions:
     fingerprint:
       algo: sha256
       value: 6fbcbeea9c968c59e0f155aeb28440410370971580c30670c38a125cb725a750
+    requires:
+      lsps:
+        - typescript-language-server
+      sdks:
+        - nodejs
+    suggests:
+      dbg:
+        - js-debug
     icon: dist/icons/jcode.lang.javascript.png
   - uniqueName: jcode.lang.kotlin
     name: Kotlin Language Pack
@@ -146,7 +174,15 @@ extensions:
     jext: dist/jcode.lang.kotlin-0.1.1.jext
     fingerprint:
       algo: sha256
-      value: 8ebec59ca13e1cac34bb54955af0369272e45d521378e448d29de76dc1ce5cd1
+      value: 4ed4da17aa4126403a0a4a45466f1e0adf2b976141a7b5227303163b712608e1
+    requires:
+      sdks:
+        - jdk
+      lsps:
+        - kotlin-language-server
+    suggests:
+      dbg:
+        - java-debug
     icon: dist/icons/jcode.lang.kotlin.png
   - uniqueName: jcode.lang.markup
     name: Markup Language Pack
@@ -163,7 +199,14 @@ extensions:
     jext: dist/jcode.lang.markup-1.0.1.jext
     fingerprint:
       algo: sha256
-      value: a931ef648fd2b06e45f3ae668ba9da9616dbd4fa6f129c24f09a9973b3483997
+      value: 770aaa1f7ace7b33a0806b0e817b35d789e399ef50dfb94b534762649b506b92
+    requires:
+      lsps:
+        - vscode-html-language-server
+        - vscode-json-language-server
+        - yaml-language-server
+      sdks:
+        - nodejs
     icon: dist/icons/jcode.lang.markup.png
   - uniqueName: jcode.lang.python
     name: Python Language Pack
@@ -179,6 +222,14 @@ extensions:
     fingerprint:
       algo: sha256
       value: 64d0e0779ee2dbec89add97e78ed6c48c7cdba0c165efc72c298b38cc247bfcc
+    requires:
+      lsps:
+        - pyright
+      sdks:
+        - python
+    suggests:
+      dbg:
+        - debugpy
     icon: dist/icons/jcode.lang.python.png
   - uniqueName: jcode.lang.stylesheet
     name: Style Sheet Language Pack
@@ -195,7 +246,12 @@ extensions:
     jext: dist/jcode.lang.stylesheet-1.0.1.jext
     fingerprint:
       algo: sha256
-      value: 15c55a1b1e3dad840b89cbd5db74654f9e9450b9bebcffe4a9df8fb80fe939df
+      value: 0c407c66ec8dd803fcd06df5c824f1d19498656ee7bd48ac44e83a41bb3446cf
+    requires:
+      lsps:
+        - vscode-css-language-server
+      sdks:
+        - nodejs
     icon: dist/icons/jcode.lang.stylesheet.png
   - uniqueName: jcode.lang.typescript
     name: TypeScript Language Pack
@@ -210,7 +266,15 @@ extensions:
     jext: dist/jcode.lang.typescript-0.2.0.jext
     fingerprint:
       algo: sha256
-      value: 65d80c02de2c52cbf211848811ac221e2e5bad64b6ab5db44db64db5858f9ff6
+      value: 6ea4e865b3beaa96c06dd75dc0f33671a100f60c1f9961b35362b6332375ca49
+    requires:
+      lsps:
+        - typescript-language-server
+      sdks:
+        - nodejs
+    suggests:
+      dbg:
+        - js-debug
     icon: dist/icons/jcode.lang.typescript.png
   - uniqueName: jcode.pack.android
     name: Android Dev Pack
@@ -227,5 +291,13 @@ extensions:
     jext: dist/jcode.pack.android-0.3.1.jext
     fingerprint:
       algo: sha256
-      value: 18072c8d51556e39c4e8e5065a24570a7503c453fe781937f63a9e555d0f0970
+      value: 73b6ebee9834cbd9a1a176a3637678550edcac915f3f038f9fd54cfc849ca3f9
+    requires:
+      extensions:
+        - jcode.lang.kotlin
+      sdks:
+        - android-sdk
+    suggests:
+      dbg:
+        - java-debug
     icon: dist/icons/jcode.pack.android.png
