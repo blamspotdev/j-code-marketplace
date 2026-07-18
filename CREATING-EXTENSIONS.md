@@ -48,7 +48,7 @@ Commands: `jext init | validate | pack | index | help`.
 ## 2. Scaffold
 
 ```bash
-jext init my-lang --type language --name "My Language Pack" \
+jext init my-lang --type language --name "My Dev Pack" \
   --id jcode.lang.mylang --publisher you
 ```
 
@@ -67,7 +67,7 @@ detail page). Full field reference: the
 ---
 schema: 1
 uniqueName: jcode.lang.mylang        # globally-unique reverse-DNS id; the install id
-name: My Language Pack
+name: My Dev Pack
 version: 1.0.0                        # YOUR extension's own version (semver)
 type: language
 publisher: you
@@ -95,7 +95,7 @@ entry:
 fingerprint: { algo: sha256, value: null }   # reserved; integrity lives in .jext-manifest.json
 ---
 
-# My Language Pack
+# My Dev Pack
 
 The Markdown body is the long description. Reference screenshots from `media/`:
 <!-- ![Sample](media/sample-1.png) -->
@@ -112,7 +112,7 @@ helpers, and the built-in formatter.
 
 ```yaml
 id: jcode.lang.mylang
-name: My Language Pack
+name: My Dev Pack
 version: 1.0.0
 type: language
 language:
