@@ -55,7 +55,7 @@ extensions:
     name: Postgres Client
     publisher: jcode
     type: dbmanager
-    version: 0.1.0
+    version: 0.1.1
     category: Databases
     subcategory: PostgreSQL
     shortDescription: >-
@@ -63,12 +63,14 @@ extensions:
       manage tables, run queries, view ER diagrams, security, and back up / restore.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.pgclient-0.1.0.jext
+    jext: dist/jcode.ext.pgclient-0.1.1.jext
     fingerprint:
       algo: sha256
-      value: fca35870f7a79c40d6f41ae3782e4ccd812b80406911e718a4a7d4477e891701
+      value: 0bd2ac80fe98128e6c54fa5e7be3541430357f05d62a29579659cc1b8737664c
     requires:
       extensions: []
+      sdks:
+        - postgresql
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.pgclient.png
@@ -76,7 +78,7 @@ extensions:
     name: SQL Client
     publisher: jcode
     type: dbmanager
-    version: 0.3.1
+    version: 0.3.2
     category: Databases
     subcategory: SQL Server
     shortDescription: >-
@@ -84,12 +86,14 @@ extensions:
       diagrams and security in a full editor studio.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.sqlclient-0.3.1.jext
+    jext: dist/jcode.ext.sqlclient-0.3.2.jext
     fingerprint:
       algo: sha256
-      value: e84d3c74555305f3cdbc0b848c37ac20ca7b879fc942d4781b15bac30d72aa19
+      value: ba9bdec0494c53c1a23ca0ba600a0a114f5f19b972d00ce507997e1e2697479c
     requires:
       extensions: []
+      sdks:
+        - sqlcmd
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.sqlclient.png
