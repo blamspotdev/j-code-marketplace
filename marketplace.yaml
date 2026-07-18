@@ -123,16 +123,16 @@ extensions:
     name: C# Dev Pack
     publisher: jcode
     type: language
-    version: 0.3.4
+    version: 0.3.5
     category: Languages
     subcategory: C#
     shortDescription: Coding suggestions, a basic formatter, helpers, and .NET project templates for C#.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.csharp-0.3.4.jext
+    jext: dist/jcode.lang.csharp-0.3.5.jext
     fingerprint:
       algo: sha256
-      value: 65986fae34691f2a567b48a98cc98464a3aef382a0c36ab0beac66cdb5a509f6
+      value: 5199b327c46b8186f53481aee682d6aa251ee7c15fd48a8996ea6c48d5ba0398
     requires:
       lsps:
         - csharp-ls
