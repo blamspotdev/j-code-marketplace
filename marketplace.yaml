@@ -32,6 +32,29 @@ extensions:
         - git
     suggests: {}
     icon: dist/icons/jcode.ext.gitscm.png
+  - uniqueName: jcode.ext.mermaidprev
+    name: Mermaid Preview
+    publisher: jcode
+    type: app
+    version: 0.1.0
+    category: Visualization
+    subcategory: Diagrams
+    shortDescription: >-
+      Inline and tab previews for Mermaid diagrams in .mmd files and Markdown fences — fully
+      offline.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.3.4
+    jext: dist/jcode.ext.mermaidprev-0.1.0.jext
+    fingerprint:
+      algo: sha256
+      value: 0479bed97a8a70c829ed2988ba72ca2c91643d8b3864221b63946695d6a159f3
+    requires:
+      extensions: []
+      sdks: []
+    suggests: {}
+    supportedArches:
+      - arm64
+    icon: dist/icons/jcode.ext.mermaidprev.png
   - uniqueName: jcode.ext.openchamber
     name: OpenChamber
     publisher: openchamber
