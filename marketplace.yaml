@@ -36,7 +36,7 @@ extensions:
     name: Mermaid Preview
     publisher: jcode
     type: app
-    version: 0.1.0
+    version: 0.2.0
     category: Visualization
     subcategory: Diagrams
     shortDescription: >-
@@ -44,10 +44,10 @@ extensions:
       offline.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.3.4
-    jext: dist/jcode.ext.mermaidprev-0.1.0.jext
+    jext: dist/jcode.ext.mermaidprev-0.2.0.jext
     fingerprint:
       algo: sha256
-      value: 0479bed97a8a70c829ed2988ba72ca2c91643d8b3864221b63946695d6a159f3
+      value: 6b2c998a501bef405c9c357aadb8224a8b78a872cea7fad805716fa12a706483
     requires:
       extensions: []
       sdks: []
