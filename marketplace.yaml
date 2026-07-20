@@ -14,7 +14,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.9.0
+    version: 0.9.1
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -22,10 +22,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.9.0.jext
+    jext: dist/jcode.ext.gitscm-0.9.1.jext
     fingerprint:
       algo: sha256
-      value: 70d7cf53d0b24b240423c668bda1b809d98f9b9d47788e2119e34ab3a1bcf682
+      value: 8accdddb723559e136a168f70d3936ab0646f18260243176d9427444b0d1524f
     requires:
       extensions: []
       sdks:
@@ -146,22 +146,22 @@ extensions:
     name: C/C++ Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.0
+    version: 0.1.1
     category: Languages
     subcategory: C/C++
     shortDescription: Coloring, completions, snippets, and a clang-format formatter for C and C++.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.3.5
-    jext: dist/jcode.lang.cpp-0.1.0.jext
+    jext: dist/jcode.lang.cpp-0.1.1.jext
     fingerprint:
       algo: sha256
-      value: 053dc9acc291e0dae083dee19afa1f676aa2d1d6b6b83a5c663ad4e0bcbfb3bb
+      value: 55119a59d578f145679fc725c3d48856096406281da2b7617fb05c990c90cf43
     requires:
-      sdks:
-        - clangd
       lsps:
         - clangd
     suggests:
+      sdks:
+        - clangd
       dbg:
         - lldb-dap
     icon: dist/icons/jcode.lang.cpp.png
@@ -169,22 +169,22 @@ extensions:
     name: C# Dev Pack
     publisher: jcode
     type: language
-    version: 0.3.5
+    version: 0.3.6
     category: Languages
     subcategory: C#
     shortDescription: Coding suggestions, a basic formatter, helpers, and .NET project templates for C#.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.csharp-0.3.5.jext
+    jext: dist/jcode.lang.csharp-0.3.6.jext
     fingerprint:
       algo: sha256
-      value: 5199b327c46b8186f53481aee682d6aa251ee7c15fd48a8996ea6c48d5ba0398
+      value: ef47c6202e9dd9672f4fdbaa1914beb8aa2ab7f852605a434b6705d51aba4b68
     requires:
       lsps:
         - csharp-ls
+    suggests:
       sdks:
         - dotnet
-    suggests:
       dbg:
         - netcoredbg
     icon: dist/icons/jcode.lang.csharp.png
@@ -192,22 +192,22 @@ extensions:
     name: Java Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.0
+    version: 0.1.1
     category: Languages
     subcategory: Java
     shortDescription: Coloring, completions, snippets, and a basic formatter for Java.
     minJCodeVersion: 1.3.5
     targetJCodeVersion: 1.3.5
-    jext: dist/jcode.lang.java-0.1.0.jext
+    jext: dist/jcode.lang.java-0.1.1.jext
     fingerprint:
       algo: sha256
-      value: 44b1a3d4331c04ca0399c61470d6e769504e98bce23a8ffd090ba904fab31b8a
+      value: 870b48a6ad3f326b5e5b5435e273141890493e8e9d2233a1a50456ba0c22d43d
     requires:
-      sdks:
-        - jdk
       lsps:
         - jdtls
     suggests:
+      sdks:
+        - jdk
       dbg:
         - java-debug
     icon: dist/icons/jcode.lang.java.png
@@ -215,22 +215,22 @@ extensions:
     name: JavaScript Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.1
+    version: 0.2.2
     category: Languages
     subcategory: JavaScript
     shortDescription: Coding suggestions, a basic formatter, helpers, and a project template for JavaScript.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.javascript-0.2.1.jext
+    jext: dist/jcode.lang.javascript-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: 0cae0a05b75413b75753da8548dd9a7411697ce0618fe46c7871e00d3f1ca9e1
+      value: da724449049d6781abb064be2bf14dfd07c999b45fcafb53c17419a9374a01ad
     requires:
       lsps:
         - typescript-language-server
+    suggests:
       sdks:
         - nodejs
-    suggests:
       dbg:
         - js-debug
     icon: dist/icons/jcode.lang.javascript.png
@@ -238,22 +238,22 @@ extensions:
     name: Kotlin Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.2
+    version: 0.1.3
     category: Languages
     subcategory: Kotlin
     shortDescription: Coloring, completions, snippets, and a basic formatter for Kotlin.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.kotlin-0.1.2.jext
+    jext: dist/jcode.lang.kotlin-0.1.3.jext
     fingerprint:
       algo: sha256
-      value: bb906c5568b13e59ad0b6aaf78ab5b50d7f4ab2eb0d8a17a454cbad0e0e130e3
+      value: 03fef1bc35018439873cbc71cee069be608be8a227ec4e4fd286c6267d5e0344
     requires:
-      sdks:
-        - jdk
       lsps:
         - kotlin-language-server
     suggests:
+      sdks:
+        - jdk
       dbg:
         - java-debug
     icon: dist/icons/jcode.lang.kotlin.png
@@ -261,7 +261,7 @@ extensions:
     name: Markup Dev Pack
     publisher: jcode
     type: language
-    version: 1.0.2
+    version: 1.0.3
     category: Languages
     subcategory: Markup
     shortDescription: >-
@@ -269,15 +269,16 @@ extensions:
       INI.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.markup-1.0.2.jext
+    jext: dist/jcode.lang.markup-1.0.3.jext
     fingerprint:
       algo: sha256
-      value: f901158631e3ac731d9d511536e32fc3a144ac031100d36900e6268558ed5328
+      value: 475bf2455372403841dc4bf8808c6144c5d83e4f4a57504a805393dd95073cf8
     requires:
       lsps:
         - vscode-html-language-server
         - vscode-json-language-server
         - yaml-language-server
+    suggests:
       sdks:
         - nodejs
     icon: dist/icons/jcode.lang.markup.png
@@ -285,22 +286,22 @@ extensions:
     name: Python Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.3
+    version: 0.2.4
     category: Languages
     subcategory: Python
     shortDescription: Coloring, completions, snippets, a basic formatter, and project templates for Python.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.python-0.2.3.jext
+    jext: dist/jcode.lang.python-0.2.4.jext
     fingerprint:
       algo: sha256
-      value: fba94cdba4835c33c69d897bbac64a51bbb5529cbce052ae3437c83f92c11a3b
+      value: 784c4d884f54c6898098a935d568c5cb6b1191d9d7383a06ac96f13b72a74d41
     requires:
       lsps:
         - pyright
+    suggests:
       sdks:
         - python
-    suggests:
       dbg:
         - debugpy
     icon: dist/icons/jcode.lang.python.png
@@ -308,7 +309,7 @@ extensions:
     name: Style Sheet Dev Pack
     publisher: jcode
     type: language
-    version: 1.0.2
+    version: 1.0.3
     category: Languages
     subcategory: Style Sheets
     shortDescription: >-
@@ -316,13 +317,14 @@ extensions:
       DSSSL.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.stylesheet-1.0.2.jext
+    jext: dist/jcode.lang.stylesheet-1.0.3.jext
     fingerprint:
       algo: sha256
-      value: 09616ae899106164826cd6bb8ba1d2c377df5c220ce267094fb71804d328f6c5
+      value: 53ddcf3327ba38cb630a2c154ad4a13261621108fd004745bbb4dab98e6d126a
     requires:
       lsps:
         - vscode-css-language-server
+    suggests:
       sdks:
         - nodejs
     icon: dist/icons/jcode.lang.stylesheet.png
@@ -330,22 +332,22 @@ extensions:
     name: TypeScript Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.1
+    version: 0.2.2
     category: Languages
     subcategory: TypeScript
     shortDescription: Coding suggestions, a basic formatter, helpers, and project templates for TypeScript.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.typescript-0.2.1.jext
+    jext: dist/jcode.lang.typescript-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: 881a5e4503dc7ead5dea14231817a8e52ecef75ed4c4a61f69c1f2cb43d24873
+      value: e5e89459469d5795c0c7d7a107561c7fa70a3d80d47dba1541df2c82e69b4cdc
     requires:
       lsps:
         - typescript-language-server
+    suggests:
       sdks:
         - nodejs
-    suggests:
       dbg:
         - js-debug
     icon: dist/icons/jcode.lang.typescript.png
@@ -353,7 +355,7 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.3.2
+    version: 0.3.3
     category: Languages
     subcategory: Android
     shortDescription: >-
@@ -361,16 +363,16 @@ extensions:
       features via the Kotlin Dev Pack).
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.pack.android-0.3.2.jext
+    jext: dist/jcode.pack.android-0.3.3.jext
     fingerprint:
       algo: sha256
-      value: 0b1bf5aad12dcdb18a5c7667d90392bdc516c4f3414ba73b639a86d808ef17d9
+      value: 44c39874b006b7ca4d791365148d3d2ac761d4cd6616cfbc0d67b205ccc9bb49
     requires:
       extensions:
         - jcode.lang.kotlin
+    suggests:
       sdks:
         - android-sdk
-    suggests:
       dbg:
         - java-debug
     icon: dist/icons/jcode.pack.android.png
