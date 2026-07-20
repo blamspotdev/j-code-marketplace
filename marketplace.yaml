@@ -215,22 +215,22 @@ extensions:
     name: JavaScript Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.1
+    version: 0.2.2
     category: Languages
     subcategory: JavaScript
     shortDescription: Coding suggestions, a basic formatter, helpers, and a project template for JavaScript.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.lang.javascript-0.2.1.jext
+    jext: dist/jcode.lang.javascript-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: 0cae0a05b75413b75753da8548dd9a7411697ce0618fe46c7871e00d3f1ca9e1
+      value: da724449049d6781abb064be2bf14dfd07c999b45fcafb53c17419a9374a01ad
     requires:
       lsps:
         - typescript-language-server
+    suggests:
       sdks:
         - nodejs
-    suggests:
       dbg:
         - js-debug
     icon: dist/icons/jcode.lang.javascript.png
