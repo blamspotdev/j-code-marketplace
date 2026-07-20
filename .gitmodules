@@ -50,3 +50,7 @@
 	path = extensions/sql-client
 	url = https://github.com/blamspotdev/j-code-ext-sql-client.git
 	branch = main
+[submodule "extensions/mermaid-prev"]
+	path = extensions/mermaid-prev
+	url = https://github.com/blamspotdev/jcode-ext-mermaid-prev.git
+	branch = main
