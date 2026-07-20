@@ -54,3 +54,11 @@
 	path = extensions/mermaid-prev
 	url = https://github.com/blamspotdev/jcode-ext-mermaid-prev.git
 	branch = main
+[submodule "extensions/cland-devpack"]
+	path = extensions/cland-devpack
+	url = https://github.com/blamspotdev/jcode-cland-devpack.git
+	branch = main
+[submodule "extensions/java-devpack"]
+	path = extensions/java-devpack
+	url = https://github.com/blamspotdev/jcode-java-devpack.git
+	branch = main
