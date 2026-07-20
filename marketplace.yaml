@@ -142,6 +142,29 @@ extensions:
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.vmmanager.png
+  - uniqueName: jcode.lang.cpp
+    name: C/C++ Dev Pack
+    publisher: jcode
+    type: language
+    version: 0.1.0
+    category: Languages
+    subcategory: C/C++
+    shortDescription: Coloring, completions, snippets, and a clang-format formatter for C and C++.
+    minJCodeVersion: 1.0.0
+    targetJCodeVersion: 1.3.5
+    jext: dist/jcode.lang.cpp-0.1.0.jext
+    fingerprint:
+      algo: sha256
+      value: 053dc9acc291e0dae083dee19afa1f676aa2d1d6b6b83a5c663ad4e0bcbfb3bb
+    requires:
+      sdks:
+        - clangd
+      lsps:
+        - clangd
+    suggests:
+      dbg:
+        - lldb-dap
+    icon: dist/icons/jcode.lang.cpp.png
   - uniqueName: jcode.lang.csharp
     name: C# Dev Pack
     publisher: jcode
@@ -165,6 +188,29 @@ extensions:
       dbg:
         - netcoredbg
     icon: dist/icons/jcode.lang.csharp.png
+  - uniqueName: jcode.lang.java
+    name: Java Dev Pack
+    publisher: jcode
+    type: language
+    version: 0.1.0
+    category: Languages
+    subcategory: Java
+    shortDescription: Coloring, completions, snippets, and a basic formatter for Java.
+    minJCodeVersion: 1.3.5
+    targetJCodeVersion: 1.3.5
+    jext: dist/jcode.lang.java-0.1.0.jext
+    fingerprint:
+      algo: sha256
+      value: 44b1a3d4331c04ca0399c61470d6e769504e98bce23a8ffd090ba904fab31b8a
+    requires:
+      sdks:
+        - jdk
+      lsps:
+        - jdtls
+    suggests:
+      dbg:
+        - java-debug
+    icon: dist/icons/jcode.lang.java.png
   - uniqueName: jcode.lang.javascript
     name: JavaScript Dev Pack
     publisher: jcode
