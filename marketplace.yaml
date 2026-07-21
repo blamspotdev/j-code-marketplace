@@ -5,10 +5,7 @@
 name: JCode Marketplace
 publisher: jcode
 version: 1.0.0
-description: >-
-  Registry of installable JCode extensions. Each entry references a compiled .jext package under
-  dist/. The JCode app reads this index to browse, then downloads and verifies the .jext to install
-  it.
+description: Registry of installable JCode extensions (.jext packages).
 extensions:
   - uniqueName: jcode.ext.gitscm
     name: Source Control
