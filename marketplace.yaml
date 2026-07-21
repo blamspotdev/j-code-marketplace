@@ -11,7 +11,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.9.3
+    version: 0.9.4
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -19,10 +19,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.9.3.jext
+    jext: dist/jcode.ext.gitscm-0.9.4.jext
     fingerprint:
       algo: sha256
-      value: cc8d2a442c1f368ff9326aaa583264e24bd5f5e95eebeffd58a8072bb69dbe2a
+      value: c29df992fe10bbdf80464b3c7236181531acd42ca4e94c977758b085660be6bc
     requires:
       extensions: []
       sdks:
@@ -189,16 +189,16 @@ extensions:
     name: Java Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.1
+    version: 0.1.2
     category: Languages
     subcategory: Java
     shortDescription: Coloring, completions, snippets, and a basic formatter for Java.
     minJCodeVersion: 1.3.5
     targetJCodeVersion: 1.3.5
-    jext: dist/jcode.lang.java-0.1.1.jext
+    jext: dist/jcode.lang.java-0.1.2.jext
     fingerprint:
       algo: sha256
-      value: 870b48a6ad3f326b5e5b5435e273141890493e8e9d2233a1a50456ba0c22d43d
+      value: b467ccec465100b4f98dd916e3f01cad99cd4b2e4105cd3e88f75fbbf6668017
     requires:
       lsps:
         - jdtls
