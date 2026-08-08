@@ -18,10 +18,6 @@
 	path = extensions/style-sheet-lang-pack
 	url = https://github.com/blamspotdev/j-code-ext-style-sheet-lang-pack.git
 	branch = main
-[submodule "extensions/openchamber"]
-	path = extensions/openchamber
-	url = https://github.com/blamspotdev/jcode-ext-openchamber.git
-	branch = main
 [submodule "extensions/postgres-client"]
 	path = extensions/postgres-client
 	url = https://github.com/blamspotdev/jcode-ext-postgres-client.git

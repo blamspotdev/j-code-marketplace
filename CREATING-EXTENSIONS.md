@@ -216,7 +216,7 @@ route families — `exec.*` (run commands in the runtime), `fs.*` (project file 
 `activeFile`. Full reference, JS boilerplate, and the trust model:
 **[docs/EXTENSION-API.md](docs/EXTENSION-API.md)**. Working examples:
 `j-code-ext-vm-mngr` / `j-code-ext-sql-client` (legacy exec bridge) and
-[`jcode-ext-openchamber`](https://github.com/blamspotdev/jcode-ext-openchamber)
+[`jcode-ext-git-scm`](https://github.com/blamspotdev/jcode-ext-git-scm)
 (API v1).
 
 ## 5. Validate
