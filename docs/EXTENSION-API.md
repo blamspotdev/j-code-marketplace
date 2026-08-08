@@ -168,8 +168,10 @@ capability-aware envelope — and gains `workdir`/`user`/`env` control.
 
 ## 7. Worked example
 
-The OpenChamber extension (`jcode.ext.openchamber`) is the reference consumer: a launcher page that
-uses `api.hello` for feature detection, `exec.run` for multi-minute installs (long `timeoutMs`),
-`workbench.notify` for progress, and then hands the WebView over to a local web app served from the
-runtime on `http://127.0.0.1:<port>` (cleartext to localhost is allowed by the app). Source:
-<https://github.com/blamspotdev/jcode-ext-openchamber> under `packages/jcode/ext/`.
+The Source Control extension (`jcode.ext.gitscm`) is the reference consumer, and exercises most of
+v1: `exec.run` for every git invocation, `workbench.projectInfo` / `workbench.workspaceFolders` to
+find the repository, `workbench.openFile` and `workbench.openFolder` / `workbench.addFolder` for
+navigation and clone destinations, `workbench.setExplorerDecorations` to push VCS badges into the
+file tree, `workbench.openView` / `workbench.closeView` to move between its own screens,
+`workbench.notify` for progress, and the `config` capability for its own settings. Source:
+<https://github.com/blamspotdev/jcode-ext-git-scm> under `src/`.

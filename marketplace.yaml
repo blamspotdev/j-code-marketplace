@@ -52,25 +52,6 @@ extensions:
     supportedArches:
       - arm64
     icon: dist/icons/jcode.ext.mermaidprev.png
-  - uniqueName: jcode.ext.openchamber
-    name: OpenChamber
-    publisher: openchamber
-    type: app
-    version: 1.16.2
-    category: AI
-    subcategory: Agents
-    shortDescription: >-
-      AI coding agent chat in your IDE — the OpenChamber UI for opencode, shipped as a static bundle
-      (no Node.js needed).
-    minJCodeVersion: 1.0.0
-    targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.openchamber-1.16.2.jext
-    fingerprint:
-      algo: sha256
-      value: 4a45132f4e2288d34466e4f9295c84191474712fe4ff422131facfff045a1b56
-    supportedArches:
-      - arm64
-    icon: dist/icons/jcode.ext.openchamber.png
   - uniqueName: jcode.ext.pgclient
     name: Postgres Client
     publisher: jcode
