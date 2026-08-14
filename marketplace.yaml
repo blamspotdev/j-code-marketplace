@@ -344,7 +344,7 @@ extensions:
     jext: dist/jcode.pack.android-0.6.0.jext
     fingerprint:
       algo: sha256
-      value: 2abed65064ecf88482c40a069386a3d1707bc8391a302b73f3aa36436293ab64
+      value: 62e739a07f7b4bcda548e9451b6a83aa723699a57cbb1970a8c5b383bd157a6a
     requires:
       extensions:
         - jcode.lang.kotlin
