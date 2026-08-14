@@ -11,7 +11,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.9.5
+    version: 0.9.6
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -19,10 +19,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.9.5.jext
+    jext: dist/jcode.ext.gitscm-0.9.6.jext
     fingerprint:
       algo: sha256
-      value: 42866c4b744186bdd7de84f8874e9fb1bf04a470ac7027a41f5485025a1feaff
+      value: fc48dd28f6cfcfc96280bb3148c166d984b8352509769ab77e90fbf496899f9e
     requires:
       extensions: []
       sdks:
