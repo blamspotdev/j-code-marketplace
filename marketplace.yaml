@@ -22,7 +22,7 @@ extensions:
     jext: dist/jcode.ext.gitscm-0.9.6.jext
     fingerprint:
       algo: sha256
-      value: fc48dd28f6cfcfc96280bb3148c166d984b8352509769ab77e90fbf496899f9e
+      value: 315085a8a89221fb3ea8e2c7abac8e7ebd9877721baa99ea188bf7f655c46ff2
     requires:
       extensions: []
       sdks:
