@@ -11,7 +11,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.9.5
+    version: 0.9.6
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -19,10 +19,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.ext.gitscm-0.9.5.jext
+    jext: dist/jcode.ext.gitscm-0.9.6.jext
     fingerprint:
       algo: sha256
-      value: 42866c4b744186bdd7de84f8874e9fb1bf04a470ac7027a41f5485025a1feaff
+      value: cd6a428b91ab22fa463620882286a36812ddfa05e854e4d32a925d822fa64800
     requires:
       extensions: []
       sdks:
@@ -333,7 +333,7 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.5.0
+    version: 0.6.0
     category: Languages
     subcategory: Android
     shortDescription: >-
@@ -341,10 +341,10 @@ extensions:
       features via the Kotlin Dev Pack).
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist/jcode.pack.android-0.5.0.jext
+    jext: dist/jcode.pack.android-0.6.0.jext
     fingerprint:
       algo: sha256
-      value: 37e9a228a59067b7d1c6b01e87910990148bbcfcc5ef4cc01e55a86978a809a5
+      value: 131c34cca965713d087681b4aaa0b07c53bea52a2853f0a70d9d86193852d912
     requires:
       extensions:
         - jcode.lang.kotlin
