@@ -11,18 +11,18 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.9.7
+    version: 0.12.2
     category: Source Control
     subcategory: Git
     shortDescription: >-
       Compact git source control in the left drawer — tree/list changes, multi-repo workspaces,
       commit, branch, sync, and GitHub sign-in.
-    minJCodeVersion: 1.0.0
+    minJCodeVersion: 1.6.2
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.gitscm-0.9.7.jext
+    jext: dist_v2/jcode.ext.gitscm-0.12.2.jext
     fingerprint:
       algo: sha256
-      value: 7757c4062f02ba280f277b2e26124b6e294343d945003041357fef5f60a4c4c9
+      value: 76f8a6e5263494f93233f834142d1878d328fd28e233c707f2a428266f4b45a4
     requires:
       extensions: []
       sdks:
@@ -33,7 +33,7 @@ extensions:
     name: Mermaid Preview
     publisher: jcode
     type: app
-    version: 0.2.0
+    version: 0.2.2
     category: Visualization
     subcategory: Diagrams
     shortDescription: >-
@@ -41,10 +41,10 @@ extensions:
       offline.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.3.4
-    jext: dist_v2/jcode.ext.mermaidprev-0.2.0.jext
+    jext: dist_v2/jcode.ext.mermaidprev-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: 6b2c998a501bef405c9c357aadb8224a8b78a872cea7fad805716fa12a706483
+      value: ce8d57b9b2cff2b3c30f0c07df331d9094941997d07bbaee00b827b7f5ba2598
     requires:
       extensions: []
       sdks: []
@@ -56,7 +56,7 @@ extensions:
     name: Postgres Client
     publisher: jcode
     type: dbmanager
-    version: 0.1.1
+    version: 0.2.2
     category: Databases
     subcategory: PostgreSQL
     shortDescription: >-
@@ -64,10 +64,10 @@ extensions:
       manage tables, run queries, view ER diagrams, security, and back up / restore.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.pgclient-0.1.1.jext
+    jext: dist_v2/jcode.ext.pgclient-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: 0bd2ac80fe98128e6c54fa5e7be3541430357f05d62a29579659cc1b8737664c
+      value: 75ce7370e1ee6a6b60b308e4c8f458f433b94ae8374e55a8bf3757d3c3cf8a6c
     requires:
       extensions: []
       sdks:
@@ -79,7 +79,7 @@ extensions:
     name: SQL Client
     publisher: jcode
     type: dbmanager
-    version: 0.3.2
+    version: 0.4.2
     category: Databases
     subcategory: SQL Server
     shortDescription: >-
@@ -87,10 +87,10 @@ extensions:
       diagrams and security in a full editor studio.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.sqlclient-0.3.2.jext
+    jext: dist_v2/jcode.ext.sqlclient-0.4.2.jext
     fingerprint:
       algo: sha256
-      value: ba9bdec0494c53c1a23ca0ba600a0a114f5f19b972d00ce507997e1e2697479c
+      value: d99cef0ef5e71e5367410a98f261c40db992108209c2c85924a0a14931e62bf8
     requires:
       extensions: []
       sdks:
@@ -102,7 +102,7 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.3
+    version: 0.3.5
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
@@ -110,10 +110,10 @@ extensions:
       ARM build.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.vmmanager-0.3.3.jext
+    jext: dist_v2/jcode.ext.vmmanager-0.3.5.jext
     fingerprint:
       algo: sha256
-      value: 7afcfc732e204d8cae8e8db2857274d7b47dddd8f571b68c735f8c3e6f58cb4a
+      value: e3b98343c58c7e9662bc963f0a44f65e69a62bbedca2b02b2e43231178a59680
     requires:
       sdks:
         - qemu-system-x86
@@ -124,16 +124,16 @@ extensions:
     name: C/C++ Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.1
+    version: 0.1.3
     category: Languages
     subcategory: C/C++
     shortDescription: Coloring, completions, snippets, and a clang-format formatter for C and C++.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.3.5
-    jext: dist_v2/jcode.lang.cpp-0.1.1.jext
+    jext: dist_v2/jcode.lang.cpp-0.1.3.jext
     fingerprint:
       algo: sha256
-      value: 55119a59d578f145679fc725c3d48856096406281da2b7617fb05c990c90cf43
+      value: e0ac6419d8484cb5ce82c553c36a066864e1d84987d8be3b1b583d745525a123
     requires:
       lsps:
         - clangd
@@ -147,16 +147,16 @@ extensions:
     name: C# Dev Pack
     publisher: jcode
     type: language
-    version: 0.3.6
+    version: 0.3.8
     category: Languages
     subcategory: C#
     shortDescription: Coding suggestions, a basic formatter, helpers, and .NET project templates for C#.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.csharp-0.3.6.jext
+    jext: dist_v2/jcode.lang.csharp-0.3.8.jext
     fingerprint:
       algo: sha256
-      value: ef47c6202e9dd9672f4fdbaa1914beb8aa2ab7f852605a434b6705d51aba4b68
+      value: ef7f0d2e807978646600907c5b69718f634ad9af4eb890a9443d879745ff74c4
     requires:
       lsps:
         - csharp-ls
@@ -170,16 +170,16 @@ extensions:
     name: Java Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.2
+    version: 0.2.2
     category: Languages
     subcategory: Java
     shortDescription: Coloring, completions, snippets, and a basic formatter for Java.
     minJCodeVersion: 1.3.5
     targetJCodeVersion: 1.3.5
-    jext: dist_v2/jcode.lang.java-0.1.2.jext
+    jext: dist_v2/jcode.lang.java-0.2.2.jext
     fingerprint:
       algo: sha256
-      value: b467ccec465100b4f98dd916e3f01cad99cd4b2e4105cd3e88f75fbbf6668017
+      value: 2e7f0a2125e302fa34a524ee288af04cbb7bcb2cd64a626b630f19ec6885d2cb
     requires:
       lsps:
         - jdtls
@@ -193,16 +193,16 @@ extensions:
     name: JavaScript Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.2
+    version: 0.2.4
     category: Languages
     subcategory: JavaScript
     shortDescription: Coding suggestions, a basic formatter, helpers, and a project template for JavaScript.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.javascript-0.2.2.jext
+    jext: dist_v2/jcode.lang.javascript-0.2.4.jext
     fingerprint:
       algo: sha256
-      value: da724449049d6781abb064be2bf14dfd07c999b45fcafb53c17419a9374a01ad
+      value: 639e2715252747479f8c175514cd23d9da181b123a4015b3187b94449c1a8841
     requires:
       lsps:
         - typescript-language-server
@@ -216,16 +216,16 @@ extensions:
     name: Kotlin Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.3
+    version: 0.1.5
     category: Languages
     subcategory: Kotlin
     shortDescription: Coloring, completions, snippets, and a basic formatter for Kotlin.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.kotlin-0.1.3.jext
+    jext: dist_v2/jcode.lang.kotlin-0.1.5.jext
     fingerprint:
       algo: sha256
-      value: 03fef1bc35018439873cbc71cee069be608be8a227ec4e4fd286c6267d5e0344
+      value: f6c49fd6d797f19dbff745df3dd1ed01a2b97784c4ceb190305027007817e315
     requires:
       lsps:
         - kotlin-language-server
@@ -239,7 +239,7 @@ extensions:
     name: Markup Dev Pack
     publisher: jcode
     type: language
-    version: 1.0.3
+    version: 1.0.5
     category: Languages
     subcategory: Markup
     shortDescription: >-
@@ -247,10 +247,10 @@ extensions:
       INI.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.markup-1.0.3.jext
+    jext: dist_v2/jcode.lang.markup-1.0.5.jext
     fingerprint:
       algo: sha256
-      value: 475bf2455372403841dc4bf8808c6144c5d83e4f4a57504a805393dd95073cf8
+      value: 3e969dfe4a77880da184838e2de9531eef16c0a342b35491a1ba3367aa56b444
     requires:
       lsps:
         - vscode-html-language-server
@@ -264,16 +264,16 @@ extensions:
     name: Python Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.4
+    version: 0.2.6
     category: Languages
     subcategory: Python
     shortDescription: Coloring, completions, snippets, a basic formatter, and project templates for Python.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.python-0.2.4.jext
+    jext: dist_v2/jcode.lang.python-0.2.6.jext
     fingerprint:
       algo: sha256
-      value: 784c4d884f54c6898098a935d568c5cb6b1191d9d7383a06ac96f13b72a74d41
+      value: 09915c2fba563fccfdf725686b2490aabc7d7d4ae8af9eacaee56492a63b4b1b
     requires:
       lsps:
         - pyright
@@ -287,7 +287,7 @@ extensions:
     name: Style Sheet Dev Pack
     publisher: jcode
     type: language
-    version: 1.0.3
+    version: 1.0.5
     category: Languages
     subcategory: Style Sheets
     shortDescription: >-
@@ -295,10 +295,10 @@ extensions:
       DSSSL.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.stylesheet-1.0.3.jext
+    jext: dist_v2/jcode.lang.stylesheet-1.0.5.jext
     fingerprint:
       algo: sha256
-      value: 53ddcf3327ba38cb630a2c154ad4a13261621108fd004745bbb4dab98e6d126a
+      value: 8484f31fce7e0f7be16a510ff8634b69dd86133355e48e92ca6e0655fe8b88c8
     requires:
       lsps:
         - vscode-css-language-server
@@ -310,16 +310,16 @@ extensions:
     name: TypeScript Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.2
+    version: 0.2.4
     category: Languages
     subcategory: TypeScript
     shortDescription: Coding suggestions, a basic formatter, helpers, and project templates for TypeScript.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.typescript-0.2.2.jext
+    jext: dist_v2/jcode.lang.typescript-0.2.4.jext
     fingerprint:
       algo: sha256
-      value: e5e89459469d5795c0c7d7a107561c7fa70a3d80d47dba1541df2c82e69b4cdc
+      value: b24bf7b444a43afe9f49bd53e13b161d78750059c58a0172ca61cb8a629f8700
     requires:
       lsps:
         - typescript-language-server
@@ -333,7 +333,7 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.7.0
+    version: 0.7.2
     category: Languages
     subcategory: Android
     shortDescription: >-
@@ -341,10 +341,10 @@ extensions:
       features via the Kotlin Dev Pack).
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.pack.android-0.7.0.jext
+    jext: dist_v2/jcode.pack.android-0.7.2.jext
     fingerprint:
       algo: sha256
-      value: ed325ce2086e7fa94bf4294b49e0ec817155b4de4b212b1ba6fc6f44c63968c1
+      value: 39e0bfd11faacd5f364604eb6050a5ede0ed57ba110a47f54c6f3f9ed3e2715c
     requires:
       extensions:
         - jcode.lang.kotlin
