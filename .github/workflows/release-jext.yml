@@ -1,9 +1,14 @@
 # Build one JCode extension into a `.jext` and attach it to a GitHub Release.
 #
 # Called by every extension repo — Dev Packs and Apps alike — so the build lives in one file rather
-# than fifteen copies that drift. The caller is four lines; everything that varies between an
+# than fifteen copies that drift. The caller is three lines; everything that varies between an
 # extension with no build step, one that runs esbuild, and one that runs Gradle is decided here by
 # looking at the repo rather than by asking the caller to declare it.
+#
+# Every merge to `main` packs the extension and leaves the `.jext` on the run as an artifact, so a
+# merge that breaks the build is caught by the merge that broke it and a sideloadable package is
+# always there. A GitHub Release is cut on top of that only when `version:` names something that has
+# not shipped yet, which keeps the tag list a record of what was published, not of what merged.
 #
 # **This produces a PLAIN `.jext`, never a signed one.** Signing is the marketplace's job and the
 # signing key never reaches CI: it is the root of trust for code that runs inside JCode's own
@@ -57,14 +62,14 @@ jobs:
         id: gate
         env:
           GH_TOKEN: ${{ github.token }}
-        # The tag is the record of what shipped, so it is also the gate. A merge that changed code
-        # but not the version finds its tag already there and stops — which is the same answer as
-        # "nothing to release" without needing to diff against the previous commit, and it survives
-        # squash merges, re-runs and a manual dispatch alike.
+        # The tag is the record of what shipped, so it is also the gate on publishing. A merge that
+        # changed code but not the version still builds — it finds its tag already there and leaves
+        # the package on the run instead of releasing it. Asking the tag rather than diffing the
+        # previous commit survives squash merges, re-runs and a manual dispatch alike.
         run: |
           tag="v${{ steps.manifest.outputs.version }}"
           if gh release view "$tag" >/dev/null 2>&1; then
-            echo "Release $tag already exists — nothing to do."
+            echo "Release $tag already exists — this run builds but does not publish."
             echo "release=false" >> "$GITHUB_OUTPUT"
           else
             echo "release=true" >> "$GITHUB_OUTPUT"
@@ -73,7 +78,6 @@ jobs:
 
       - name: Look for a Gradle module
         id: shape
-        if: steps.gate.outputs.release == 'true'
         # Native extensions keep theirs under `native/` or `studio/`; the rest have none. Detected
         # rather than declared so a caller never has to keep a flag in step with its own layout.
         run: |
@@ -84,13 +88,12 @@ jobs:
           fi
 
       - name: Set up Node
-        if: steps.gate.outputs.release == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Set up JDK
-        if: steps.gate.outputs.release == 'true' && steps.shape.outputs.gradle == 'true'
+        if: steps.shape.outputs.gradle == 'true'
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -98,28 +101,25 @@ jobs:
           cache: gradle
 
       - name: Set up the Android SDK
-        if: steps.gate.outputs.release == 'true' && steps.shape.outputs.gradle == 'true'
+        if: steps.shape.outputs.gradle == 'true'
         uses: android-actions/setup-android@v3
         with:
           packages: ${{ inputs.android-platform }}
 
       - name: Check out the packer
-        if: steps.gate.outputs.release == 'true'
         uses: actions/checkout@v4
         with:
+          # Public, so the job's own token reaches it and no secret has to be kept in step across
+          # fifteen repos on a user account that has no org-level secrets to share.
           repository: blamspotdev/j-code-make-tools
           path: .jext-tools
-          # A token only while the packer is private; the job's own token is enough once it is not,
-          # so this keeps working either way and the secret can simply be deleted.
-          token: ${{ secrets.JEXT_TOOLS_TOKEN || github.token }}
 
       - name: Install the packer
-        if: steps.gate.outputs.release == 'true'
         run: npm ci --no-audit --no-fund
         working-directory: .jext-tools
 
       - name: Make the Gradle wrapper runnable
-        if: steps.gate.outputs.release == 'true' && steps.shape.outputs.gradle == 'true'
+        if: steps.shape.outputs.gradle == 'true'
         # The wrapper is committed non-executable by repos worked on from Windows, and `build.mjs`
         # spawns it by absolute path — which is a permission error on Linux rather than a shell
         # falling back to `sh gradlew`. Normalised here so CI does not depend on the mode any one
@@ -127,10 +127,18 @@ jobs:
         run: find . -maxdepth 2 -name gradlew -not -path './.git/*' -exec chmod +x {} +
 
       - name: Pack
-        if: steps.gate.outputs.release == 'true'
         # `jext pack` runs the extension's own `npm run build` when it declares one, so this single
         # command covers all three shapes: no build step, esbuild, and Gradle.
         run: node .jext-tools/bin/jext.js pack . -o out
+
+      - name: Keep the package on the run
+        # What a merge that did not bump the version leaves behind: the same unsigned package a
+        # release would carry, downloadable from the run for as long as artifacts are kept.
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.manifest.outputs.id }}-${{ steps.manifest.outputs.version }}
+          path: out/*.jext
+          if-no-files-found: error
 
       - name: Publish the release
         if: steps.gate.outputs.release == 'true'
@@ -154,4 +162,6 @@ jobs:
               echo "[Changes since $previous](${{ github.server_url }}/${{ github.repository }}/compare/$previous...${{ steps.gate.outputs.tag }})"
             fi
           } > notes.md
-          gh release create "${{ steps.gate.outputs.tag }}" "$asset" \n            --title "${{ steps.manifest.outputs.name }} ${{ steps.manifest.outputs.version }}" \n            --notes-file notes.md
+          gh release create "${{ steps.gate.outputs.tag }}" "$asset" \
+            --title "${{ steps.manifest.outputs.name }} ${{ steps.manifest.outputs.version }}" \
+            --notes-file notes.md
