@@ -1,0 +1,7 @@
+# Tool checkouts made by the sync workflow — never part of the registry.
+.jext-tools/
+.jsign-tools/
+
+# Signing keys never live in this repo.
+keys/
+*signing-key*.json

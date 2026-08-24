@@ -1,0 +1,114 @@
+# Publish what the extensions have released: sign it, index it, commit it.
+#
+# Run by hand, because publishing is a decision. Each extension repo releases a PLAIN `.jext` on
+# every merge; this walks those releases and, wherever one is newer than the package sitting in
+# `dist_v2/`, signs it with the marketplace key and replaces the old file. `marketplace_v2.yaml` is
+# regenerated from whatever `dist_v2/` then holds, and that index is what the app reads.
+#
+# Signing is the point of the step. An unsigned release asset is a development sideload; only a
+# package sealed with this key will load native code inside JCode's own process. The key lives in
+# `JCODE_SIGNING_KEY`, is written to the runner's temp directory rather than the checkout, and is
+# removed when the job ends.
+#
+# `dist/` + `marketplace.yaml` are the frozen v1 pair that builds up to 1.6.x read. Nothing here
+# touches them.
+name: Sync dist_v2
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: Only these extension repos (comma-separated names); empty means all of them.
+        type: string
+        default: ''
+      dry-run:
+        description: Report what would change and sign nothing.
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      # The commit that publishes dist_v2 and its index.
+      contents: write
+    steps:
+      - name: Check out the marketplace
+        uses: actions/checkout@v4
+        with:
+          # `main` is protected and its bypass is granted to the Repository admin role, which
+          # `GITHUB_TOKEN` is not — it acts as the GitHub Actions app. A PAT belonging to an admin
+          # makes the publish push; granting the bypass to GitHub Actions instead makes the default
+          # token enough, so this is written as a fallback and either setup works.
+          token: ${{ secrets.RELEASE_TOKEN || github.token }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check out the packer
+        uses: actions/checkout@v4
+        with:
+          repository: blamspotdev/j-code-make-tools
+          path: .jext-tools
+
+      - name: Install the packer
+        run: npm ci --no-audit --no-fund
+        working-directory: .jext-tools
+
+      - name: Check out the signer
+        uses: actions/checkout@v4
+        with:
+          # Private: the token is read-only Contents on that repo and nothing else.
+          repository: blamspotdev/jcode-jext-sign-enc-tool
+          path: .jsign-tools
+          token: ${{ secrets.JSIGN_TOOLS_TOKEN }}
+
+      - name: Install the signer
+        run: npm ci --no-audit --no-fund
+        working-directory: .jsign-tools
+
+      - name: Unpack the signing key
+        env:
+          # Through the environment, never interpolated into the script: an expression pasted into
+          # a `run:` block becomes part of the command line.
+          KEY: ${{ secrets.JCODE_SIGNING_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::error::JCODE_SIGNING_KEY is not set — nothing can be signed"
+            exit 1
+          fi
+          # The runner's temp directory, not the checkout: a key under the working tree is one
+          # `git add -A` away from being published.
+          printf '%s' "$KEY" > "$RUNNER_TEMP/signing-key.json"
+          chmod 600 "$RUNNER_TEMP/signing-key.json"
+
+      - name: Sign what is new
+        id: sync
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SIGNING_KEY_FILE: ${{ runner.temp }}/signing-key.json
+          ONLY: ${{ inputs.only }}
+          DRY_RUN: ${{ inputs.dry-run }}
+        run: node scripts/sync-dist-v2.mjs
+
+      - name: Publish
+        if: steps.sync.outputs.changed != '0' && !inputs.dry-run
+        env:
+          SIGNED: ${{ steps.sync.outputs.signed }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dist_v2 marketplace_v2.yaml
+          if git diff --cached --quiet; then
+            echo "the index came out identical — nothing to publish."
+            exit 0
+          fi
+          git commit -q -m "Publish $SIGNED"
+          # `main` is protected; GitHub Actions holds a bypass so this push lands.
+          git push -q origin HEAD:main
+
+      - name: Shred the signing key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/signing-key.json"
