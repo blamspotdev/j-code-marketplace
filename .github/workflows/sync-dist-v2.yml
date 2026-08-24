@@ -35,6 +35,12 @@ jobs:
     steps:
       - name: Check out the marketplace
         uses: actions/checkout@v4
+        with:
+          # `main` is protected and its bypass is granted to the Repository admin role, which
+          # `GITHUB_TOKEN` is not — it acts as the GitHub Actions app. A PAT belonging to an admin
+          # makes the publish push; granting the bypass to GitHub Actions instead makes the default
+          # token enough, so this is written as a fallback and either setup works.
+          token: ${{ secrets.RELEASE_TOKEN || github.token }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
