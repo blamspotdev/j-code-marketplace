@@ -1,73 +1,113 @@
-# j-code-marketplace
+# The JCode marketplace
 
-Extension marketplace for JCode — language packs, templates, and (later)
-theme / icon-set extensions.
+This is where JCode's extensions are published. When someone opens **Extensions**
+inside JCode and installs something, this repo is what they are browsing.
 
-Extension **sources** are git submodules under `extensions/`. Each of those repos
-compiles itself with [`jext`](https://github.com/blamspotdev/j-code-make-tools) on
-every merge and attaches the resulting **unsigned** `.jext` to its own Releases.
-This repo is where those packages get **signed** and **published**: the
-[Sync dist_v2](.github/workflows/sync-dist-v2.yml) workflow, run by hand, pulls each
-extension's latest release, signs it with the marketplace key, drops it in `dist_v2/`
-and regenerates [`marketplace_v2.yaml`](marketplace_v2.yaml). The JCode app reads that
-index to browse, then **downloads and verifies** the chosen `.jext` to install it.
+Extensions themselves are not written here. Each one lives in its own repository,
+and this repo keeps a pointer to every one of them, collects what they publish,
+signs it, and lists it.
+
+## How an extension gets to a user
+
+1. **Someone builds an extension** in its own repo — a language pack, a project
+   template, a database client, whatever it is.
+2. **Its repo packages itself.** Every time a change is merged there, a workflow
+   bumps the version, packs the extension into a single `.jext` file, and attaches
+   it to that repo's Releases. That package is *unsigned*.
+3. **This repo signs it.** Someone runs the [Sync dist_v2](.github/workflows/sync-dist-v2.yml)
+   workflow here by hand. It looks at every extension it tracks, downloads any
+   release newer than what it already has, signs it with the marketplace key, and
+   updates the index.
+4. **JCode installs it.** The app reads the index to show what is available, then
+   downloads the package and checks the signature before installing.
+
+The signing step is the reason a person has to press the button. See
+[below](#why-signing-happens-here).
+
+## What is in this repo
 
 ```
-marketplace_v2.yaml            # index JCode 1.7.0+ reads: entry -> dist_v2/<id>-<ver>.jext
-dist_v2/                       # signed .jext packages (what the app installs)
-  jcode.lang.python-0.2.4.jext
-  icons/                       # extracted at index time, shown before install
-marketplace.yaml               # FROZEN v1 index — what 1.6.x and earlier read
-dist/                          # FROZEN v1 packages; leave both where they are
-extensions/                    # submodule SOURCES (where extensions are developed)
-  template-1/    -> j-code-ext-template-1   (type: templates)
-  csharp/        -> j-code-ext-csharp       (type: language)
-  javascript/    -> j-code-ext-javascript   (type: language)
-  typescript/    -> j-code-ext-typescript   (type: language)
+marketplace_v2.yaml    the list JCode reads — one entry per extension
+dist_v2/               the signed packages the app downloads
+  jcode.lang.python-0.2.6.jext
+  icons/               pulled out of each package, so the app can show an icon
+                       before you install anything
+extensions/            a pointer to each extension's own repo (16 of them)
+marketplace.yaml       the old list, frozen
+dist/                  the old packages, frozen
 ```
 
-Each extension source carries an `extension.jehm` **header** (metadata — see the
-[JEHM spec](https://github.com/blamspotdev/j-code-make-tools/blob/main/docs/JEHM-SPEC.md))
-and an `extension.yaml` **functional manifest**.
-
-## Clone
+`extensions/` holds git *submodules* — each one is a reference to another
+repository rather than a copy of it. Cloning this repo does not bring them along
+unless you ask:
 
 ```bash
 git clone --recurse-submodules https://github.com/blamspotdev/j-code-marketplace.git
-# or, after a plain clone:
+# already cloned the plain way?
 git submodule update --init --recursive
 ```
 
-## Extension types
+That list is also what the sync workflow works from: an extension that is not a
+submodule here is one the marketplace never sees, however often its own repo
+publishes.
 
-- **language** — editor coding suggestions, a basic formatter, and helpers
-  (`extension.yaml` with a `language:` block).
-- **templates** — project templates scaffolded on-device (`extension.yaml` +
-  `templates/<id>/template.yaml`).
+### The two lists
 
-## Add / update an extension
+`marketplace.yaml` and `dist/` are what JCode 1.6.x and earlier read, and they are
+frozen exactly as those versions left them so that installs already on people's
+phones keep working. `marketplace_v2.yaml` and `dist_v2/` are what 1.7.0 onward
+reads. **Only ever add to v2.**
 
-> **New here?** [**CREATING-EXTENSIONS.md**](CREATING-EXTENSIONS.md) is the full,
-> step-by-step walkthrough (header + manifest schemas, `language`/`templates`
-> examples, icons, publishing, and how the app installs). Quick version:
+## What an extension can be
 
-1. Create a `j-code-ext-<name>` repo with an `extension.jehm` header (`jext init`)
-   and an `extension.yaml` manifest.
-2. `git submodule add -b main <repo-url> extensions/<name>`.
-3. Merge a PR in that repo. Its own CI bumps the patch version, packs the `.jext`
-   and publishes it to that repo's Releases — unsigned.
-4. Run **Sync dist_v2** here (Actions → Sync dist_v2 → Run workflow). It signs every
-   release that is newer than what `dist_v2/` holds, reindexes, and commits. Use the
-   **dry-run** input first if you want to see what it would pick up.
+Every extension declares a `type`, which tells JCode what it is:
 
-The two pairs are deliberate: `dist/` + `marketplace.yaml` stay exactly as 1.6.x left
-them so installs already in people's hands keep resolving, while `dist_v2/` +
-`marketplace_v2.yaml` are what 1.7.0 onward reads. Only ever add to v2.
+| | |
+|---|---|
+| `language` | editing support for a language — suggestions, formatting, helpers |
+| `templates` | project templates, scaffolded on the device |
+| `formatter` | formatting on its own |
+| `theme`, `icons` | how the editor looks |
+| `app` | a screen of its own inside JCode |
+| `dbmanager` | a database client |
+| `scm` | source control |
+| `vm` | virtual machine management |
 
-### Why the sync signs, and CI does not
+A single extension often does several of these at once — a "dev pack" is usually a
+`language` that also carries templates, run configurations and toolchain entries.
 
-A signature means *reviewed and approved by the marketplace maintainer* — it is the
-root of trust for code that runs inside JCode's own process, and the app refuses to
-load a native extension's dex without it. The extension repos are public and their CI
-only ever produces plain packages; the key lives in this repo's `JCODE_SIGNING_KEY`
-secret and is used by the one workflow that publishes.
+## Adding an extension
+
+New to this? [**CREATING-EXTENSIONS.md**](CREATING-EXTENSIONS.md) walks through the
+whole thing — what goes in the manifest, worked examples, icons, and how the app
+installs the result. The short version:
+
+1. **Make a repo** for the extension with an `extension.yaml` in its root. That one
+   file is both the description the marketplace shows and the manifest JCode reads.
+   `jext init` writes a starting point.
+2. **Point this repo at it:**
+   ```bash
+   git submodule add -b main <repo-url> extensions/<name>
+   ```
+3. **Merge something there.** Its own workflow bumps the version, packs it, and
+   publishes it to that repo's Releases.
+4. **Run Sync dist_v2 here** (Actions → Sync dist_v2 → Run workflow). It signs
+   anything newer than what `dist_v2/` holds and rebuilds the index. There is a
+   dry-run option if you would rather see what it would pick up first.
+
+Steps 1–3 can be repeated as often as you like without touching this repo. Step 4
+is what actually publishes.
+
+## Why signing happens here
+
+A signature means *the marketplace maintainer looked at this and approved it*.
+
+It matters because extensions are not sandboxed the way a web page is: an
+extension can ship native code that runs inside JCode's own process, with JCode's
+own permissions. So the app refuses to load that code unless the package carries a
+marketplace signature.
+
+The extension repos are public and their workflows only ever produce plain,
+unsigned packages — which are perfectly usable as development sideloads. The key
+that turns one into a published extension lives only in this repo, as the
+`JCODE_SIGNING_KEY` secret, and only the sync workflow uses it.
