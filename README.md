@@ -58,45 +58,31 @@ frozen exactly as those versions left them so that installs already on people's
 phones keep working. `marketplace_v2.yaml` and `dist_v2/` are what 1.7.0 onward
 reads. **Only ever add to v2.**
 
-## What an extension can be
+## Publishing a new version
 
-Every extension declares a `type`, which tells JCode what it is:
+Extensions publish themselves; this repo collects the result. When an extension's
+own repo has released something newer, run **Sync dist_v2** here (Actions → Sync
+dist_v2 → Run workflow). It signs anything newer than what `dist_v2/` holds and
+rebuilds the index. There is a dry-run option if you would rather see what it would
+pick up first.
 
-| | |
-|---|---|
-| `language` | editing support for a language — suggestions, formatting, helpers |
-| `templates` | project templates, scaffolded on the device |
-| `formatter` | formatting on its own |
-| `theme`, `icons` | how the editor looks |
-| `app` | a screen of its own inside JCode |
-| `dbmanager` | a database client |
-| `scm` | source control |
-| `vm` | virtual machine management |
+To start tracking a new extension, add it as a submodule and the sync will find it
+from then on:
 
-A single extension often does several of these at once — a "dev pack" is usually a
-`language` that also carries templates, run configurations and toolchain entries.
+```bash
+git submodule add -b main <repo-url> extensions/<name>
+```
 
-## Adding an extension
+## Writing an extension
 
-New to this? [**CREATING-EXTENSIONS.md**](CREATING-EXTENSIONS.md) walks through the
-whole thing — what goes in the manifest, worked examples, icons, and how the app
-installs the result. The short version:
+Not here. Extensions are built with
+[**jext**](https://github.com/blamspotdev/j-code-make-tools), and its documentation
+is what you want:
 
-1. **Make a repo** for the extension with an `extension.yaml` in its root. That one
-   file is both the description the marketplace shows and the manifest JCode reads.
-   `jext init` writes a starting point.
-2. **Point this repo at it:**
-   ```bash
-   git submodule add -b main <repo-url> extensions/<name>
-   ```
-3. **Merge something there.** Its own workflow bumps the version, packs it, and
-   publishes it to that repo's Releases.
-4. **Run Sync dist_v2 here** (Actions → Sync dist_v2 → Run workflow). It signs
-   anything newer than what `dist_v2/` holds and rebuilds the index. There is a
-   dry-run option if you would rather see what it would pick up first.
-
-Steps 1–3 can be repeated as often as you like without touching this repo. Step 4
-is what actually publishes.
+- [Creating an extension](https://github.com/blamspotdev/j-code-make-tools/blob/main/docs/CREATING-EXTENSIONS.md)
+  — the walkthrough, from an empty folder to a package.
+- [The extension API](https://github.com/blamspotdev/j-code-make-tools/blob/main/docs/EXTENSION-API.md)
+  — for an extension with a web frontend.
 
 ## Why signing happens here
 
