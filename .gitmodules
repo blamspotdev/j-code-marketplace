@@ -58,3 +58,7 @@
 	path = extensions/java-devpack
 	url = https://github.com/blamspotdev/jcode-java-devpack.git
 	branch = main
+[submodule "extensions/flutter"]
+	path = extensions/flutter
+	url = https://github.com/blamspotdev/jcode-ext-flutter.git
+	branch = main
