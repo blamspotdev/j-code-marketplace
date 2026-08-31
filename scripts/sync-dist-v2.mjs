@@ -9,12 +9,16 @@
 // Signing is the whole point of the step: an unsigned release asset is a development sideload, and
 // only a package signed with this key is one the app will load native code from.
 //
+// Nothing here commits: it leaves `dist_v2/` and the index changed in the working tree, and the
+// workflow carries that to `main` as a pull request.
+//
 // Run by .github/workflows/sync-dist-v2.yml on manual dispatch. Env:
 //   GITHUB_TOKEN      read access for the releases API (higher rate limit; public repos otherwise)
 //   SIGNING_KEY_FILE  keyfile jsign signs with (never printed, never committed)
 //   ONLY              comma-separated repo names to consider; empty = every submodule
 //   GITHUB_API        API root, for pointing the release lookup somewhere other than github.com
 //   DRY_RUN           "true" to report what would change and touch nothing
+//   PR_BODY_FILE      where to write the description of the pull request that publishes this
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -201,23 +205,43 @@ async function main() {
   log('');
   log(changed ? `${changed} package(s) ${dryRun ? 'would be' : ''} signed into dist_v2/.` : 'dist_v2/ is already current.');
 
+  // The same table serves the run's summary and the pull request it opens: both answer "what did
+  // this touch, and what did it leave alone".
+  const table = [
+    '| extension | version | outcome |',
+    '| --- | --- | --- |',
+    ...rows.map((r) => `| \`${r.name}\` | ${r.detail} | ${r.state} |`),
+  ].join('\n');
+  const signedRows = rows.filter((r) => r.state === 'signed');
+  // One package is worth naming in the title; a sweep of fifteen is a list nobody reads there.
+  const title =
+    signedRows.length === 1
+      ? `Publish ${signedRows[0].name} ${signedRows[0].version}`
+      : `Publish ${signedRows.length} packages the extensions have released`;
+
   if (process.env.GITHUB_STEP_SUMMARY) {
-    const md = [
-      `### dist_v2 sync${dryRun ? ' (dry run)' : ''}`,
-      '',
-      '| extension | version | outcome |',
-      '| --- | --- | --- |',
-      ...rows.map((r) => `| \`${r.name}\` | ${r.detail} | ${r.state} |`),
-    ].join('\n');
+    const md = `### dist_v2 sync${dryRun ? ' (dry run)' : ''}\n\n${table}`;
     fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${md}\n`);
   }
+  if (process.env.PR_BODY_FILE && signedRows.length) {
+    // The description the workflow opens the pull request with: the same table, and a sentence
+    // saying where the bytes in it came from.
+    const body = [
+      "Each package below was taken from its own repo's latest release, signed with the marketplace",
+      'key and written into `dist_v2/`; `marketplace_v2.yaml` is regenerated from what that directory',
+      'now holds.',
+      '',
+      table,
+    ].join('\n');
+    fs.writeFileSync(process.env.PR_BODY_FILE, `${body}\n`);
+  }
   if (process.env.GITHUB_OUTPUT) {
-    // Named here so the commit the workflow makes says which packages it carries.
-    const signed = rows
-      .filter((r) => r.state === 'signed')
-      .map((r) => `${r.name}@${r.version}`)
-      .join(', ');
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `changed=${changed}\nsigned=${signed}\n`);
+    // Named here so the pull request the workflow opens says which packages it carries.
+    const signed = signedRows.map((r) => `${r.name}@${r.version}`).join(', ');
+    fs.appendFileSync(
+      process.env.GITHUB_OUTPUT,
+      `changed=${changed}\nsigned=${signed}\ntitle=${title}\n`,
+    );
   }
 }
 
