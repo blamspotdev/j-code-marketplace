@@ -1,9 +1,13 @@
-# Publish what the extensions have released: sign it, index it, commit it.
+# Publish what the extensions have released: sign it, index it, propose it.
 #
 # Run by hand, because publishing is a decision. Each extension repo releases a PLAIN `.jext` on
 # every merge; this walks those releases and, wherever one is newer than the package sitting in
 # `dist_v2/`, signs it with the marketplace key and replaces the old file. `marketplace_v2.yaml` is
 # regenerated from whatever `dist_v2/` then holds, and that index is what the app reads.
+#
+# The result arrives as a pull request. `main` answers to the `protect-main` ruleset, which requires
+# one and hands a bypass to nobody at all — a direct push is refused however it is authenticated —
+# so the run pushes a branch and opens the request from it.
 #
 # Signing is the point of the step. An unsigned release asset is a development sideload; only a
 # package sealed with this key will load native code inside JCode's own process. The key lives in
@@ -30,17 +34,17 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      # The commit that publishes dist_v2 and its index.
+      # The branch the signed packages are pushed to …
       contents: write
+      # … and the pull request opened from it. GitHub Actions must also be allowed to open pull
+      # requests (Settings → Actions → General → Workflow permissions); the last step says so if it
+      # is not.
+      pull-requests: write
     steps:
       - name: Check out the marketplace
+        # The default token, deliberately: it is minted for this run and cannot expire out from
+        # under the checkout the way a stored PAT can, and nothing here writes to `main`.
         uses: actions/checkout@v4
-        with:
-          # `main` is protected and its bypass is granted to the Repository admin role, which
-          # `GITHUB_TOKEN` is not — it acts as the GitHub Actions app. A PAT belonging to an admin
-          # makes the publish push; granting the bypass to GitHub Actions instead makes the default
-          # token enough, so this is written as a fallback and either setup works.
-          token: ${{ secrets.RELEASE_TOKEN || github.token }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -91,23 +95,38 @@ jobs:
           SIGNING_KEY_FILE: ${{ runner.temp }}/signing-key.json
           ONLY: ${{ inputs.only }}
           DRY_RUN: ${{ inputs.dry-run }}
+          PR_BODY_FILE: ${{ runner.temp }}/pr-body.md
         run: node scripts/sync-dist-v2.mjs
 
-      - name: Publish
+      - name: Open the publish pull request
         if: steps.sync.outputs.changed != '0' && !inputs.dry-run
         env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: ${{ steps.sync.outputs.title }}
           SIGNED: ${{ steps.sync.outputs.signed }}
+          BODY_FILE: ${{ runner.temp }}/pr-body.md
+          BRANCH: publish/dist-v2
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$BRANCH"
           git add dist_v2 marketplace_v2.yaml
           if git diff --cached --quiet; then
             echo "the index came out identical — nothing to publish."
             exit 0
           fi
-          git commit -q -m "Publish $SIGNED"
-          # `main` is protected; GitHub Actions holds a bypass so this push lands.
-          git push -q origin HEAD:main
+          git commit -q -m "$TITLE" -m "$SIGNED"
+          # One branch, reused run to run: each run signs afresh from the current `main`, so what it
+          # produces supersedes whatever an earlier unmerged run left sitting there.
+          git push -q --force origin "$BRANCH"
+          open=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$open" ]; then
+            gh pr edit "$open" --title "$TITLE" --body-file "$BODY_FILE"
+            echo "updated the open pull request #$open"
+          elif ! gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file "$BODY_FILE"; then
+            echo "::error::the packages are pushed to $BRANCH but no pull request could be opened — Settings → Actions → General → Workflow permissions must allow GitHub Actions to create pull requests."
+            exit 1
+          fi
 
       - name: Shred the signing key
         if: always()
