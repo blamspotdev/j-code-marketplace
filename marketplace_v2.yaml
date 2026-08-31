@@ -102,7 +102,7 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.6
+    version: 0.3.7
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
@@ -110,10 +110,10 @@ extensions:
       ARM build.
     minJCodeVersion: 1.6.2
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.vmmanager-0.3.6.jext
+    jext: dist_v2/jcode.ext.vmmanager-0.3.7.jext
     fingerprint:
       algo: sha256
-      value: 4204f6d485afa48a873499d1b46109dd53cb592d8797f802edefcfe72c66c55a
+      value: 844613ba3304aa6c46b4e94c03620be4d497a67c5a1714f4bbbb2921532419e1
     requires:
       sdks:
         - qemu-system-x86
