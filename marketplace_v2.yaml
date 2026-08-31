@@ -102,18 +102,18 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.5
+    version: 0.3.6
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
       Create and run x86/x86_64 QEMU VMs — incl. a one-click SQL Server VM — for software with no
       ARM build.
-    minJCodeVersion: 1.0.0
+    minJCodeVersion: 1.6.2
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.vmmanager-0.3.5.jext
+    jext: dist_v2/jcode.ext.vmmanager-0.3.6.jext
     fingerprint:
       algo: sha256
-      value: e3b98343c58c7e9662bc963f0a44f65e69a62bbedca2b02b2e43231178a59680
+      value: 4204f6d485afa48a873499d1b46109dd53cb592d8797f802edefcfe72c66c55a
     requires:
       sdks:
         - qemu-system-x86
@@ -333,25 +333,54 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.7.2
+    version: 0.8.1
     category: Languages
     subcategory: Android
     shortDescription: >-
       Android XML + Gradle language support, helpers, and an Android app project template (Kotlin
       features via the Kotlin Dev Pack).
-    minJCodeVersion: 1.0.0
-    targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.pack.android-0.7.2.jext
+    minJCodeVersion: 1.7.0
+    targetJCodeVersion: 1.7.0
+    jext: dist_v2/jcode.pack.android-0.8.1.jext
     fingerprint:
       algo: sha256
-      value: 39e0bfd11faacd5f364604eb6050a5ede0ed57ba110a47f54c6f3f9ed3e2715c
+      value: 74684134ad8453041644e4fcb3ff0bd9bf6f52e27915ff07f2c78af80f5ca45c
     requires:
       extensions:
         - jcode.lang.kotlin
+        - jcode.lang.java
+      sdks:
+        - adb
     suggests:
       sdks:
         - android-sdk
-        - adb
       dbg:
         - java-debug
     icon: dist_v2/icons/jcode.pack.android.png
+  - uniqueName: jcode.pack.flutter
+    name: Flutter Dev Pack
+    publisher: jcode
+    type: language
+    version: 0.1.2
+    category: Languages
+    subcategory: Flutter
+    shortDescription: >-
+      Dart coloring, completions and snippets, a Flutter app template that builds on-device, and the
+      everyday Flutter commands.
+    minJCodeVersion: 1.7.0
+    targetJCodeVersion: 1.7.0
+    jext: dist_v2/jcode.pack.flutter-0.1.2.jext
+    fingerprint:
+      algo: sha256
+      value: 7a2022901e16276fd264e4af8ebc04e84bf62061661e32fa6b83c99cc9945d75
+    requires:
+      extensions:
+        - jcode.pack.android
+      sdks:
+        - flutter
+      lsps:
+        - dart-language-server
+    suggests:
+      sdks:
+        - android-sdk
+    icon: dist_v2/icons/jcode.pack.flutter.png
