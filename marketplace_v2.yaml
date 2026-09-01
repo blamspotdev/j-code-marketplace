@@ -333,18 +333,18 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.8.2
+    version: 0.8.3
     category: Languages
     subcategory: Android
     shortDescription: >-
       Android XML + Gradle language support, helpers, and an Android app project template (Kotlin
       features via the Kotlin Dev Pack).
-    minJCodeVersion: 1.7.0
+    minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.7.0
-    jext: dist_v2/jcode.pack.android-0.8.2.jext
+    jext: dist_v2/jcode.pack.android-0.8.3.jext
     fingerprint:
       algo: sha256
-      value: 1ecef399e4f959e054fed9568b3acb2844cdc7e9d090e42d229e666a768ad9fb
+      value: 5fa276e8080750654ffcc702dd51a3d21aa5c029bee22f6444925043e87ff940
     requires:
       extensions:
         - jcode.lang.kotlin
