@@ -11,18 +11,18 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.12.4
+    version: 0.12.5
     category: Source Control
     subcategory: Git
     shortDescription: >-
       Compact git source control in the left drawer — tree/list changes, multi-repo workspaces,
       commit, branch, sync, and GitHub sign-in.
-    minJCodeVersion: 1.6.2
+    minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.gitscm-0.12.4.jext
+    jext: dist_v2/jcode.ext.gitscm-0.12.5.jext
     fingerprint:
       algo: sha256
-      value: 3b4d76471ef6bd711680553d57d17fd82146af2bdbf9991b8d8cc3f1eecc526b
+      value: ba8c05e021cd13ff91515202ce7e748f5731200e54d252fcd2187eaa569e7edf
     requires:
       extensions: []
       sdks:
@@ -56,18 +56,18 @@ extensions:
     name: Postgres Client
     publisher: jcode
     type: dbmanager
-    version: 0.2.3
+    version: 0.2.4
     category: Databases
     subcategory: PostgreSQL
     shortDescription: >-
       A PostgreSQL studio — run a native local server or connect to any host, browse databases,
       manage tables, run queries, view ER diagrams, security, and back up / restore.
-    minJCodeVersion: 1.0.0
+    minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.pgclient-0.2.3.jext
+    jext: dist_v2/jcode.ext.pgclient-0.2.4.jext
     fingerprint:
       algo: sha256
-      value: 904c1d6e3629fcea2c220e423c841af7fe6af74f2be68f968516ce5a4e8be159
+      value: c1348539a66222d70c9f6cf0085f04b5d5c5180cfe97062d59230b0356550497
     requires:
       extensions: []
       sdks:
@@ -79,18 +79,18 @@ extensions:
     name: SQL Client
     publisher: jcode
     type: dbmanager
-    version: 0.4.3
+    version: 0.4.4
     category: Databases
     subcategory: SQL Server
     shortDescription: >-
       A SQL Server studio — browse databases in the drawer, then manage tables, run queries, view ER
       diagrams and security in a full editor studio.
-    minJCodeVersion: 1.0.0
+    minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.sqlclient-0.4.3.jext
+    jext: dist_v2/jcode.ext.sqlclient-0.4.4.jext
     fingerprint:
       algo: sha256
-      value: ec254ba1ad7b0f82da471190d3f7811451e8fb9a51210a2c7e8eb31fc90137a0
+      value: 0a2dce512e8df62075a1cb9e8240c497f18aa1e2bfea58e55212a43ab0877a5d
     requires:
       extensions: []
       sdks:
@@ -102,18 +102,18 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.8
+    version: 0.3.9
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
       Create and run x86/x86_64 QEMU VMs — incl. a one-click SQL Server VM — for software with no
       ARM build.
-    minJCodeVersion: 1.6.2
+    minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.vmmanager-0.3.8.jext
+    jext: dist_v2/jcode.ext.vmmanager-0.3.9.jext
     fingerprint:
       algo: sha256
-      value: 325d1f309f451876ed619b2bba81ab63e077865814ed2420720fde2d1c53a835
+      value: bd00c3a0e355e2702f5b64e75f653b6e7538f87970b7fc6b12f094740f6cfd2d
     requires:
       sdks:
         - qemu-system-x86
