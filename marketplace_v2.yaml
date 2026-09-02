@@ -333,7 +333,7 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.8.3
+    version: 0.8.4
     category: Languages
     subcategory: Android
     shortDescription: >-
@@ -341,10 +341,10 @@ extensions:
       features via the Kotlin Dev Pack).
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.7.0
-    jext: dist_v2/jcode.pack.android-0.8.3.jext
+    jext: dist_v2/jcode.pack.android-0.8.4.jext
     fingerprint:
       algo: sha256
-      value: 5fa276e8080750654ffcc702dd51a3d21aa5c029bee22f6444925043e87ff940
+      value: 51b31bbe9e5a0f88109e69092ec91df76498c9b33b29bf99b0a3b352bc12d4b7
     requires:
       extensions:
         - jcode.lang.kotlin
