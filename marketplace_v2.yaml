@@ -333,7 +333,7 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.8.4
+    version: 0.8.5
     category: Languages
     subcategory: Android
     shortDescription: >-
@@ -341,19 +341,18 @@ extensions:
       features via the Kotlin Dev Pack).
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.7.0
-    jext: dist_v2/jcode.pack.android-0.8.4.jext
+    jext: dist_v2/jcode.pack.android-0.8.5.jext
     fingerprint:
       algo: sha256
-      value: 51b31bbe9e5a0f88109e69092ec91df76498c9b33b29bf99b0a3b352bc12d4b7
+      value: 29c6aa255c8d227fc3bf130e8994ba1be970f4a68341ed145f98347d15e1dca5
     requires:
       extensions:
         - jcode.lang.kotlin
         - jcode.lang.java
       sdks:
         - adb
-    suggests:
-      sdks:
         - android-sdk
+    suggests:
       dbg:
         - java-debug
     icon: dist_v2/icons/jcode.pack.android.png
