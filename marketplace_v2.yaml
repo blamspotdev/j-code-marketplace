@@ -11,7 +11,7 @@ extensions:
     name: Source Control
     publisher: jcode
     type: scm
-    version: 0.12.7
+    version: 0.12.8
     category: Source Control
     subcategory: Git
     shortDescription: >-
@@ -19,10 +19,10 @@ extensions:
       commit, branch, sync, and GitHub sign-in.
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.gitscm-0.12.7.jext
+    jext: dist_v2/jcode.ext.gitscm-0.12.8.jext
     fingerprint:
       algo: sha256
-      value: 49cb3a329ad498df52bca6e8dc9ac505291000e9db44e05c091029c26c135ac1
+      value: 5972c2142be1954645ff498417a8dc8a638943bdb0b547be1d8823e423d2459d
     requires:
       extensions: []
       sdks:
@@ -56,7 +56,7 @@ extensions:
     name: Postgres Client
     publisher: jcode
     type: dbmanager
-    version: 0.2.4
+    version: 0.2.5
     category: Databases
     subcategory: PostgreSQL
     shortDescription: >-
@@ -64,10 +64,10 @@ extensions:
       manage tables, run queries, view ER diagrams, security, and back up / restore.
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.pgclient-0.2.4.jext
+    jext: dist_v2/jcode.ext.pgclient-0.2.5.jext
     fingerprint:
       algo: sha256
-      value: c1348539a66222d70c9f6cf0085f04b5d5c5180cfe97062d59230b0356550497
+      value: bdaaaebd574d8067273fe390b3e108437a3e41014b2ee01df45a6b02672cad80
     requires:
       extensions: []
       sdks:
@@ -79,7 +79,7 @@ extensions:
     name: SQL Client
     publisher: jcode
     type: dbmanager
-    version: 0.4.4
+    version: 0.4.5
     category: Databases
     subcategory: SQL Server
     shortDescription: >-
@@ -87,10 +87,10 @@ extensions:
       diagrams and security in a full editor studio.
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.sqlclient-0.4.4.jext
+    jext: dist_v2/jcode.ext.sqlclient-0.4.5.jext
     fingerprint:
       algo: sha256
-      value: 0a2dce512e8df62075a1cb9e8240c497f18aa1e2bfea58e55212a43ab0877a5d
+      value: 100ad293b5515e3b30898e980e0e276419ad2fe7a3fc29c710a20e455b2ab04e
     requires:
       extensions: []
       sdks:
@@ -102,7 +102,7 @@ extensions:
     name: VM Manager
     publisher: jcode
     type: vm
-    version: 0.3.9
+    version: 0.3.10
     category: Virtualization
     subcategory: QEMU
     shortDescription: >-
@@ -110,10 +110,10 @@ extensions:
       ARM build.
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.ext.vmmanager-0.3.9.jext
+    jext: dist_v2/jcode.ext.vmmanager-0.3.10.jext
     fingerprint:
       algo: sha256
-      value: bd00c3a0e355e2702f5b64e75f653b6e7538f87970b7fc6b12f094740f6cfd2d
+      value: 1c31591b426696334dfe6f699b1df9a3ee70d70304647d73bd23b1f3f2591bb7
     requires:
       sdks:
         - qemu-system-x86
@@ -147,16 +147,16 @@ extensions:
     name: C# Dev Pack
     publisher: jcode
     type: language
-    version: 0.3.9
+    version: 0.3.10
     category: Languages
     subcategory: C#
     shortDescription: Coding suggestions, a basic formatter, helpers, and .NET project templates for C#.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.csharp-0.3.9.jext
+    jext: dist_v2/jcode.lang.csharp-0.3.10.jext
     fingerprint:
       algo: sha256
-      value: 5375d17b1bc9c944aa02a93c331a2681e68aa26480e243a049daaf471bb9ac6e
+      value: 5f4d72af96ec643bd7ced6328a0c9c08bd6549a8eb9b1a8c1e64ba8a5460cae1
     requires:
       lsps:
         - csharp-ls
@@ -170,16 +170,16 @@ extensions:
     name: Java Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.3
+    version: 0.2.4
     category: Languages
     subcategory: Java
     shortDescription: Coloring, completions, snippets, and a basic formatter for Java.
     minJCodeVersion: 1.3.5
     targetJCodeVersion: 1.3.5
-    jext: dist_v2/jcode.lang.java-0.2.3.jext
+    jext: dist_v2/jcode.lang.java-0.2.4.jext
     fingerprint:
       algo: sha256
-      value: 89656c7a679adef294538256b82e4f08186b062498009f784e2a5c130b53537e
+      value: 14c4ad858e03e93e3777d59336a6b4bc5b7cba73660ee11ca57e6452389acc19
     requires:
       lsps:
         - jdtls
@@ -193,16 +193,16 @@ extensions:
     name: JavaScript Dev Pack
     publisher: jcode
     type: language
-    version: 0.2.5
+    version: 0.2.6
     category: Languages
     subcategory: JavaScript
     shortDescription: Coding suggestions, a basic formatter, helpers, and a project template for JavaScript.
     minJCodeVersion: 1.0.0
     targetJCodeVersion: 1.0.0
-    jext: dist_v2/jcode.lang.javascript-0.2.5.jext
+    jext: dist_v2/jcode.lang.javascript-0.2.6.jext
     fingerprint:
       algo: sha256
-      value: 4f67084a2e4d56e3260e1782e38cc75fd69a39aa029f98c8692a68e25f898158
+      value: 633a2b0ece6b9a389a2a2a9e7236df4aa7702d601cf4702241eb9256cdfddad8
     requires:
       lsps:
         - typescript-language-server
@@ -333,7 +333,7 @@ extensions:
     name: Android Dev Pack
     publisher: jcode
     type: language
-    version: 0.8.5
+    version: 0.8.6
     category: Languages
     subcategory: Android
     shortDescription: >-
@@ -341,10 +341,10 @@ extensions:
       features via the Kotlin Dev Pack).
     minJCodeVersion: 1.7.3
     targetJCodeVersion: 1.7.0
-    jext: dist_v2/jcode.pack.android-0.8.5.jext
+    jext: dist_v2/jcode.pack.android-0.8.6.jext
     fingerprint:
       algo: sha256
-      value: 29c6aa255c8d227fc3bf130e8994ba1be970f4a68341ed145f98347d15e1dca5
+      value: c5d4055e5842138e405a446b17f49f292e5b5883ccd795656ed3db5555b468b2
     requires:
       extensions:
         - jcode.lang.kotlin
@@ -360,7 +360,7 @@ extensions:
     name: Flutter Dev Pack
     publisher: jcode
     type: language
-    version: 0.1.3
+    version: 0.1.4
     category: Languages
     subcategory: Flutter
     shortDescription: >-
@@ -368,10 +368,10 @@ extensions:
       everyday Flutter commands.
     minJCodeVersion: 1.7.0
     targetJCodeVersion: 1.7.0
-    jext: dist_v2/jcode.pack.flutter-0.1.3.jext
+    jext: dist_v2/jcode.pack.flutter-0.1.4.jext
     fingerprint:
       algo: sha256
-      value: 4652ac92e0652ca15bef01cd9254d3cfa15f8a7ace687f740a95a4ed5d54129a
+      value: 9aeeb54623a2e9c1c033ceb82b0bafe170141b7a9811105b337a1d905b75ab24
     requires:
       extensions:
         - jcode.pack.android
